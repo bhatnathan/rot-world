@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationTime: 0.25
+  worldRotation: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
 --- !u!4 &626688051
 Transform:
   m_ObjectHideFlags: 0

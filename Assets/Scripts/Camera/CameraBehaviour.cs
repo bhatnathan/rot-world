@@ -5,17 +5,18 @@ using UnityEngine;
 public class CameraBehaviour : MonoBehaviour
 {
     [SerializeField] private float rotationTime; //How long approx it should take to complete a rotation
+    [SerializeField] private QuaternionVariable worldRotation;
 
     private Quaternion initialRotation;
     private Quaternion latestSafeRotation;
-    private Quaternion desiredRotation;
 
     private float rotationVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        initialRotation = latestSafeRotation = desiredRotation = transform.rotation;
+        initialRotation = latestSafeRotation = transform.rotation;
+        worldRotation.SetValue(initialRotation);
     }
 
     // Update is called once per frame
@@ -53,17 +54,17 @@ public class CameraBehaviour : MonoBehaviour
 
     void RotateDesiredCamera(Vector3 axis, bool clockwise)
     {
-        desiredRotation = Quaternion.AngleAxis(clockwise ? 90 : -90, desiredRotation * axis) * desiredRotation;
+        worldRotation.SetValue(Quaternion.AngleAxis(clockwise ? 90 : -90, worldRotation.Value * axis) * worldRotation.Value);
     }
 
     void UpdateCameraRotation()
     {
         //Slerp towards desired rotation
-        float angle_diff = Quaternion.Angle(transform.rotation, desiredRotation);
+        float angle_diff = Quaternion.Angle(transform.rotation, worldRotation.Value);
         float new_angle_diff = Mathf.SmoothDamp(angle_diff, 0, ref rotationVelocity, rotationTime);
 
         float t = angle_diff > Mathf.Epsilon ? 1.0f - new_angle_diff / angle_diff : 1.0f;
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, t);
+        transform.rotation = Quaternion.Slerp(transform.rotation, worldRotation.Value, t);
     }
 }
