@@ -185,7 +185,7 @@
                 {
                     "name": "negative",
                     "id": "ffb66ef1-a54a-4eee-a6fa-91d5ccabe03f",
-                    "path": "<Keyboard>/numpad3",
+                    "path": "<Keyboard>/numpad7",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -196,7 +196,7 @@
                 {
                     "name": "positive",
                     "id": "5dca8909-f216-4c91-ad22-e82f1d361500",
-                    "path": "<Keyboard>/numpad7",
+                    "path": "<Keyboard>/numpad3",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
