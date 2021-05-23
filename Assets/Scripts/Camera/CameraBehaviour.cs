@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraBehaviour : MonoBehaviour
 {
@@ -22,39 +23,94 @@ public class CameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //BEGIN TEMP USING THIS FOR DEBUG INPUT
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            RotateDesiredCamera(Vector3.right, true);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            RotateDesiredCamera(Vector3.right, false);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            RotateDesiredCamera(Vector3.up, true);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            RotateDesiredCamera(Vector3.up, false);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            RotateDesiredCamera(Vector3.forward, true);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            RotateDesiredCamera(Vector3.forward, false);
-        }
-        //END TEMP
-
         UpdateCameraRotation();
     }
 
-    void RotateDesiredCamera(Vector3 axis, bool clockwise)
+    //TODO: Create a custom Input Composite type to streamline rotational input, after input has been decided.
+    public void OnRotateHorizontal(InputAction.CallbackContext context)
     {
-        worldRotation.SetValue(Quaternion.AngleAxis(clockwise ? 90 : -90, worldRotation.Value * axis) * worldRotation.Value);
+        if (context.performed)
+        {
+            float value = context.ReadValue<float>();
+
+            Vector3 input_direction;
+            Rotation rotation_direction;
+            if (value > 0)
+            {
+                input_direction = Vector3.up;
+                rotation_direction = Rotation.Clockwise;
+            }
+            else if (value < 0)
+            {
+                input_direction = Vector3.up;
+                rotation_direction = Rotation.Counterclockwise;
+            }
+            else
+            {
+                return;
+            }
+
+            RotateDesiredCamera(input_direction, rotation_direction);
+        }
+    }
+
+    public void OnRotateVerticalRight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            float value = context.ReadValue<float>();
+
+            Vector3 input_direction;
+            Rotation rotation_direction;
+            if (value > 0)
+            {
+                input_direction = Vector3.forward;
+                rotation_direction = Rotation.Clockwise;
+            }
+            else if (value < 0)
+            {
+                input_direction = Vector3.forward;
+                rotation_direction = Rotation.Counterclockwise;
+            }
+            else
+            {
+                return;
+            }
+
+            RotateDesiredCamera(input_direction, rotation_direction);
+        }
+    }
+
+    public void OnRotateVerticalLeft(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            float value = context.ReadValue<float>();
+
+            Vector3 input_direction;
+            Rotation rotation_direction;
+            if (value > 0)
+            {
+                input_direction = Vector3.right;
+                rotation_direction = Rotation.Clockwise;
+            }
+            else if (value < 0)
+            {
+                input_direction = Vector3.right;
+                rotation_direction = Rotation.Counterclockwise;
+            }
+            else
+            {
+                return;
+            }
+
+            RotateDesiredCamera(input_direction, rotation_direction);
+        }
+    }
+
+    void RotateDesiredCamera(Vector3 axis, Rotation direction)
+    {       
+        worldRotation.SetValue(Quaternion.AngleAxis(direction.Equals(Rotation.Clockwise) ? 90 : -90, worldRotation.Value * axis)* worldRotation.Value);
     }
 
     void UpdateCameraRotation()
