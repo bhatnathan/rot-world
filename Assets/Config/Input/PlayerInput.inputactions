@@ -1,14 +1,14 @@
 {
-    "name": "InputActions",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "Gameplay",
-            "id": "b237d5a1-816d-4ec5-8fcc-46fff8922411",
+            "id": "2c1fcd58-5d6c-4b95-9b59-23713396c8a1",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "aa29772e-2141-4c7a-b79b-d85c3aaa1551",
+                    "id": "d8769456-c491-41b3-8257-a7f611628386",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -16,7 +16,7 @@
                 {
                     "name": "Rotate Horizontal",
                     "type": "Value",
-                    "id": "4912209f-444e-4a9e-8026-742b62901e27",
+                    "id": "7174e264-6af9-411b-9b1c-c3a063592b40",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
@@ -24,24 +24,35 @@
                 {
                     "name": "Rotate Vertical Right",
                     "type": "Value",
-                    "id": "f6a45d76-7d16-4468-8c69-42b1b89b217f",
-                    "expectedControlType": "Axis",
+                    "id": "0ddead3f-be30-4b8c-b325-2db1ab853112",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Rotate Vertical Left",
                     "type": "Value",
-                    "id": "5b786d17-3883-4be0-a82e-275a8b5292b6",
-                    "expectedControlType": "Axis",
+                    "id": "e68945f4-42c1-42e5-9042-124a25f7de8b",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
             ],
             "bindings": [
                 {
+                    "name": "",
+                    "id": "177dee3d-6e7b-4c3c-b051-79b53b4e30d6",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WASD",
-                    "id": "a4b45e99-e28e-4520-a619-e2d7a36d1a97",
+                    "id": "91cd5a46-e49a-468c-af83-2d6b1f9517db",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -52,62 +63,51 @@
                 },
                 {
                     "name": "up",
-                    "id": "8ba14aa6-b950-48bc-b1bc-f64e279e6378",
+                    "id": "e6e176af-a907-42a0-b939-b65d7a015ed3",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "dfdeea28-8771-49af-93de-dbd2796ad9a3",
+                    "id": "38f2e7c3-56ff-4f77-adf5-994df6b2d3e9",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "9cf65a3f-2b8a-4a34-a9b1-05140a640aab",
+                    "id": "177e9932-aba2-4b7b-b5f1-4c420072aa84",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "e7bafa61-6c87-428e-b588-7e7cc55de6bc",
+                    "id": "f060a2a3-c90e-40d8-b0dc-c21a2f58ea87",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "01e79b1f-0c7c-4aae-b3d0-5164d5d90904",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Horziontal",
-                    "id": "e5c85266-8218-44a3-84c5-613d463f6e43",
+                    "id": "02fac464-7853-4e06-a476-d33dd4510663",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -118,7 +118,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "3493777e-9357-4c3b-8ef7-a33e839e348b",
+                    "id": "1665cf3d-48d6-440d-a7d1-8ca3baaa256d",
                     "path": "<Keyboard>/numpad4",
                     "interactions": "",
                     "processors": "",
@@ -129,7 +129,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "44230b25-3a1d-49c1-a28b-74021cfa73f7",
+                    "id": "102e71ff-e9a9-470d-ab19-b283f624451a",
                     "path": "<Keyboard>/numpad6",
                     "interactions": "",
                     "processors": "",
@@ -140,7 +140,7 @@
                 },
                 {
                     "name": "Vertical Right",
-                    "id": "aa4638cc-279c-4853-9214-137955e802a8",
+                    "id": "b89985ad-d02a-4969-9b34-d50e803f2c29",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -151,7 +151,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "56791260-b350-4b1b-acd1-3074874b5cba",
+                    "id": "e7891973-69a7-4337-8c7b-836fca476c39",
                     "path": "<Keyboard>/numpad1",
                     "interactions": "",
                     "processors": "",
@@ -162,7 +162,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "4a0e1686-fef6-4709-b8a2-e74f1bea5231",
+                    "id": "e1036ec5-0b1b-45bd-b648-d922a8e560aa",
                     "path": "<Keyboard>/numpad9",
                     "interactions": "",
                     "processors": "",
@@ -173,7 +173,7 @@
                 },
                 {
                     "name": "Vertical Left",
-                    "id": "03bfade8-6faa-4114-8f94-ab3fe55a7100",
+                    "id": "1e82dceb-bbbe-4ab8-a1b6-537c0770879a",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -184,7 +184,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "ffb66ef1-a54a-4eee-a6fa-91d5ccabe03f",
+                    "id": "4131520a-7927-4b3c-b75b-5324d30b5bf0",
                     "path": "<Keyboard>/numpad7",
                     "interactions": "",
                     "processors": "",
@@ -195,7 +195,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "5dca8909-f216-4c91-ad22-e82f1d361500",
+                    "id": "951cd1f1-cad6-42c6-bcc4-eb585b6f5d66",
                     "path": "<Keyboard>/numpad3",
                     "interactions": "",
                     "processors": "",
@@ -207,38 +207,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Keyboard",
-            "bindingGroup": "Keyboard",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": true,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<XInputController>",
-                    "isOptional": true,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }
