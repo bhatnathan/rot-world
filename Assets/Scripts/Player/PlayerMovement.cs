@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private QuaternionReference worldRotation; //Reference to the world's rotation
@@ -17,27 +19,16 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //BEGIN TEMP USING THIS FOR DEBUG INPUT
-        Vector2 input_direction = Vector2.zero;
-        float input_mag = 1f; //When input is done calculate properly
-
-        input_direction += Input.GetKey(KeyCode.UpArrow) ? Vector2.up : Vector2.zero;
-        input_direction += Input.GetKey(KeyCode.RightArrow) ? Vector2.right : Vector2.zero;
-        input_direction += Input.GetKey(KeyCode.LeftArrow) ? Vector2.left : Vector2.zero;
-        input_direction += Input.GetKey(KeyCode.DownArrow) ? Vector2.down : Vector2.zero;
-
-        input_direction.Normalize();
-
-        movement = input_mag * horizontalMaxSpeed * InputToWorldDirection(input_direction);
-        //END TEMP
-    }
-
     void FixedUpdate()
     {
         ApplyHorizontalMovement(movement);
+    }
+
+    public void OnMove(InputAction.CallbackContext context) //Event from Player Input component.
+    {
+        Vector2 input_direction = context.ReadValue<Vector2>();
+        float input_mag = 1f;
+        movement = input_mag * horizontalMaxSpeed * InputToWorldDirection(input_direction);
     }
 
     private Vector3 InputToWorldDirection(Vector2 input_direction)
