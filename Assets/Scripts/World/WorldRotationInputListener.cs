@@ -5,41 +5,40 @@ using UnityEngine.InputSystem;
 public class WorldRotationInputListener : MonoBehaviour
 {
     private WorldRotator worldRotator;
+    
+    private Rotation rotationDirection;
 
     private void Awake()
     {
         worldRotator = GetComponent<WorldRotator>();
     }
 
-    public void OnRotateAroundX(InputAction.CallbackContext context)
+    public void OnRotationModifier(InputAction.CallbackContext context)
     {
-        if (IsInputPerformed(context))
+        if (context.started)
         {
-            InvokeWorldRotation(Axis.X, Rotation.Clockwise);
+            rotationDirection = Rotation.Counterclockwise;
+        }
+        else if(context.canceled)
+        {
+            rotationDirection = Rotation.Clockwise;
         }
     }
 
-    public void OnRotateAroundXCounterclockwise(InputAction.CallbackContext context)
+    public void OnRotateAroundX(InputAction.CallbackContext context)
     {
         if (IsInputPerformed(context))
-        {
-            InvokeWorldRotation(Axis.X, Rotation.Counterclockwise);
+        {            
+            InvokeWorldRotation(Axis.X, rotationDirection);
         }
     }
+
 
     public void OnRotateAroundY(InputAction.CallbackContext context)
     {
         if (IsInputPerformed(context))
         {
-            InvokeWorldRotation(Axis.Y, Rotation.Clockwise);
-        }
-    }
-
-    public void OnRotateAroundYCounterclockwise(InputAction.CallbackContext context)
-    {
-        if (IsInputPerformed(context))
-        {
-            InvokeWorldRotation(Axis.Y, Rotation.Counterclockwise);
+            InvokeWorldRotation(Axis.Y, rotationDirection);
         }
     }
 
@@ -47,20 +46,13 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (IsInputPerformed(context))
         {
-            InvokeWorldRotation(Axis.Z, Rotation.Clockwise);
-        }
-    }
-
-    public void OnRotateAroundZCounterclockwise(InputAction.CallbackContext context)
-    {
-        if (IsInputPerformed(context))
-        {
-            InvokeWorldRotation(Axis.Z, Rotation.Counterclockwise);
+            InvokeWorldRotation(Axis.Z, rotationDirection);
         }
     }
 
     private void InvokeWorldRotation(Axis axis, Rotation rotation_direction)
-    {       
+    {
+        Debug.Log($"Invoked world rotation with Axis {axis.ToString()} and Rotation {rotation_direction}");
         worldRotator.RotateDesiredCamera(axis, rotation_direction);
     }
     

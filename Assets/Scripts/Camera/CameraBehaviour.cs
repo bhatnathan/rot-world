@@ -15,9 +15,9 @@ public class CameraBehaviour : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
+        transform.rotation = worldRotationReference.Value;
         initialRotation = latestSafeRotation = transform.rotation;
-        //worldRotationReference.SetValue(initialRotation);
     }
 
     // Update is called once per frame

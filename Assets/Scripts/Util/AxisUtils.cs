@@ -13,7 +13,7 @@ public class AxisUtils : MonoBehaviour
                 return Vector3.up;
 
             case Axis.Z:
-                return Vector3.right;
+                return Vector3.forward;
 
             default:
                 return Vector3.zero;

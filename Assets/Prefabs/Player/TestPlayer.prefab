@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4265735082826765353}
   - component: {fileID: 4265735082826765356}
   - component: {fileID: 4265735082826765357}
-  - component: {fileID: 361811704}
+  - component: {fileID: 261343388298970710}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -132,7 +132,7 @@ MonoBehaviour:
     variable: {fileID: 0}
   horizontalAcceleration: 50
   horizontalMaxSpeed: 10
---- !u!114 &361811704
+--- !u!114 &261343388298970710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,16 +175,20 @@ MonoBehaviour:
     m_ActionName: Gameplay/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 7174e264-6af9-411b-9b1c-c3a063592b40
-    m_ActionName: Gameplay/Rotate Horizontal[/Keyboard/numpad4,/Keyboard/numpad6]
+    m_ActionId: decdbfd3-ee59-4933-be88-7d4982f2fa6f
+    m_ActionName: Gameplay/RotateAroundX[/Keyboard/leftArrow,/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0ddead3f-be30-4b8c-b325-2db1ab853112
-    m_ActionName: Gameplay/Rotate Vertical Right[/Keyboard/numpad1,/Keyboard/numpad9]
+    m_ActionId: 2c6508d3-40f7-47fe-b787-d861fceddd36
+    m_ActionName: Gameplay/RotateAroundY[/Keyboard/upArrow,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: e68945f4-42c1-42e5-9042-124a25f7de8b
-    m_ActionName: Gameplay/Rotate Vertical Left[/Keyboard/numpad7,/Keyboard/numpad3]
+    m_ActionId: bd4033e1-a411-4ead-98c9-498db6236316
+    m_ActionName: Gameplay/RotateAroundZ[/Keyboard/rightArrow,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a38e6e1c-6f52-4608-8dca-cb27a5166e97
+    m_ActionName: Gameplay/RightTrigger[/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
