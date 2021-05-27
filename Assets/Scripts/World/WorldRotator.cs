@@ -4,9 +4,13 @@ public class WorldRotator : MonoBehaviour
 {
     [SerializeField] private QuaternionVariable worldRotation;
 
+    private Quaternion initialRotation;
+    private Quaternion latestSafeRotation;
+
     private void Awake()
     {
         worldRotation.SetValue(transform.rotation);
+        latestSafeRotation = initialRotation = transform.rotation;
     }
 
     public void RotateDesiredCamera(Axis axis, Rotation direction)

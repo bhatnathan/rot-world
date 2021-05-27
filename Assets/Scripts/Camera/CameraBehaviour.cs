@@ -8,16 +8,12 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private float rotationTime; //How long approx it should take to complete a rotation    
     [SerializeField] private QuaternionReference worldRotationReference;
 
-    private Quaternion initialRotation;
-    private Quaternion latestSafeRotation;
-
     private float rotationVelocity;
 
     // Start is called before the first frame update
     void Start()
     {        
         transform.rotation = worldRotationReference.Value;
-        initialRotation = latestSafeRotation = transform.rotation;
     }
 
     // Update is called once per frame

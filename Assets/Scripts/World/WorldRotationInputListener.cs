@@ -52,7 +52,6 @@ public class WorldRotationInputListener : MonoBehaviour
 
     private void InvokeWorldRotation(Axis axis, Rotation rotation_direction)
     {
-        Debug.Log($"Invoked world rotation with Axis {axis.ToString()} and Rotation {rotation_direction}");
         worldRotator.RotateDesiredCamera(axis, rotation_direction);
     }
     
