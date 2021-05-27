@@ -14,26 +14,34 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Rotate Horizontal",
+                    "name": "RotateAroundX",
                     "type": "Value",
-                    "id": "7174e264-6af9-411b-9b1c-c3a063592b40",
+                    "id": "decdbfd3-ee59-4933-be88-7d4982f2fa6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotateAroundY",
+                    "type": "Value",
+                    "id": "2c6508d3-40f7-47fe-b787-d861fceddd36",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotateAroundZ",
+                    "type": "Value",
+                    "id": "bd4033e1-a411-4ead-98c9-498db6236316",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightTrigger",
+                    "type": "Value",
+                    "id": "a38e6e1c-6f52-4608-8dca-cb27a5166e97",
                     "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Rotate Vertical Right",
-                    "type": "Value",
-                    "id": "0ddead3f-be30-4b8c-b325-2db1ab853112",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Rotate Vertical Left",
-                    "type": "Value",
-                    "id": "e68945f4-42c1-42e5-9042-124a25f7de8b",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -106,103 +114,81 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Horziontal",
-                    "id": "02fac464-7853-4e06-a476-d33dd4510663",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "8087c6bf-3ca7-4b04-9d2f-6e3db6786541",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate Horizontal",
-                    "isComposite": true,
+                    "action": "RotateAroundX",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "1665cf3d-48d6-440d-a7d1-8ca3baaa256d",
-                    "path": "<Keyboard>/numpad4",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Rotate Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "102e71ff-e9a9-470d-ab19-b283f624451a",
-                    "path": "<Keyboard>/numpad6",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Rotate Horizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Vertical Right",
-                    "id": "b89985ad-d02a-4969-9b34-d50e803f2c29",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "696f2681-0a49-400e-a6d9-8792686bed69",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate Vertical Right",
-                    "isComposite": true,
+                    "action": "RotateAroundX",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "e7891973-69a7-4337-8c7b-836fca476c39",
-                    "path": "<Keyboard>/numpad1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Rotate Vertical Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "e1036ec5-0b1b-45bd-b648-d922a8e560aa",
-                    "path": "<Keyboard>/numpad9",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Rotate Vertical Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Vertical Left",
-                    "id": "1e82dceb-bbbe-4ab8-a1b6-537c0770879a",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "b9a52249-826c-40d7-a489-17afaa60a321",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate Vertical Left",
-                    "isComposite": true,
+                    "action": "RotateAroundY",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "4131520a-7927-4b3c-b75b-5324d30b5bf0",
-                    "path": "<Keyboard>/numpad7",
+                    "name": "",
+                    "id": "876a5c6c-b85a-4b2a-9f0d-5ebc4cc2e122",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Rotate Vertical Left",
+                    "groups": "",
+                    "action": "RotateAroundY",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "951cd1f1-cad6-42c6-bcc4-eb585b6f5d66",
-                    "path": "<Keyboard>/numpad3",
+                    "name": "",
+                    "id": "f7cfdae4-bc9f-4ce0-8e7c-088ccde7bdea",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Rotate Vertical Left",
+                    "groups": "",
+                    "action": "RotateAroundZ",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3e47277-88fe-441f-bfab-07dafa8ee7bf",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateAroundZ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b60f36cc-8553-4f01-a203-bbe8a55317c1",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "Clamp(max=1)",
+                    "groups": "",
+                    "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
