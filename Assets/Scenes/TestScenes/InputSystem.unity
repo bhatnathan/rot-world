@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 735435612}
   - component: {fileID: 735435611}
   - component: {fileID: 735435610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,6 +456,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a38e6e1c-6f52-4608-8dca-cb27a5166e97
     m_ActionName: Gameplay/RightTrigger[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5cd3570c-a9e8-4c49-91f2-6111e287047b
+    m_ActionName: Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
