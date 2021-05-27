@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4265735082826765353}
   - component: {fileID: 4265735082826765356}
   - component: {fileID: 4265735082826765357}
+  - component: {fileID: 1518754503120927866}
   - component: {fileID: 261343388298970710}
   m_Layer: 0
   m_Name: TestPlayer
@@ -132,6 +133,26 @@ MonoBehaviour:
     variable: {fileID: 0}
   horizontalAcceleration: 50
   horizontalMaxSpeed: 10
+  jumpVelocity: 25
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1518754503120927866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265735082826765354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906c90b31e6d0564f9e0d0342cee4992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 1
+  height: 1
+  depth: 1
+  delta: 0.05
 --- !u!114 &261343388298970710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +210,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a38e6e1c-6f52-4608-8dca-cb27a5166e97
     m_ActionName: Gameplay/RightTrigger[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4265735082826765357}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5cd3570c-a9e8-4c49-91f2-6111e287047b
+    m_ActionName: Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
