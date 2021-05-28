@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WorldRotator : MonoBehaviour
 {
+    [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionVariable worldRotation;
 
     private Quaternion initialRotation;

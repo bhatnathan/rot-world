@@ -5,14 +5,21 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(RelativeLayerMaskQuery))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private QuaternionReference worldRotation; //Reference to the world's rotation
+    [Tooltip("Reference to the world's rotation")]
+    [SerializeField] private QuaternionReference worldRotation;
     [Space]
-    [SerializeField] private float horizontalAcceleration; //How fast does the player start moving horizontally
-    [SerializeField] private float horizontalMaxSpeed; //How fast can the player move max in a horizontal direction.
+    [Header("Movement")]
+    [Tooltip("How fast does the player start moving horizontally")]
+    [SerializeField] private float horizontalAcceleration;
+    [Tooltip("How fast can the player move max in a horizontal direction.")]
+    [SerializeField] private float horizontalMaxSpeed;
     [Space]
-    [SerializeField] private float jumpVelocity; //How fast does the player jump
+    [Header("Jumping")]
+    [Tooltip("How fast is the initial player jump velocity.")]
+    [SerializeField] private float jumpVelocity;    
     [Space]
-    [SerializeField] private LayerMask groundLayer; //What layer do we consider ground for this player.
+    [Tooltip("What layer do we consider ground for this player.")]
+    [SerializeField] private LayerMask groundLayer;
 
     //Saved movement variables to apply in FixedUpdate
     private Vector3 movement; //The calculated movement we want to apply based on inputs
