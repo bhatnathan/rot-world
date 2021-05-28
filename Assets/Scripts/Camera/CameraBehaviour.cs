@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraBehaviour : MonoBehaviour
-{
-    [SerializeField] private float rotationTime; //How long approx it should take to complete a rotation    
+{    
+    [Tooltip("How long approx it should take to complete a rotation")]
+    [SerializeField] private float rotationTime;
+    [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionReference worldRotationReference;
 
     private float rotationVelocity;
@@ -21,7 +20,6 @@ public class CameraBehaviour : MonoBehaviour
     {
         UpdateCameraRotation();
     }
-    
 
     void UpdateCameraRotation()
     {

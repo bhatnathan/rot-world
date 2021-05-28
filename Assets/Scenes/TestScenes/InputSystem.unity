@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261343388298970710, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 261343388298970710, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 5cd3570c-a9e8-4c49-91f2-6111e287047b
+      objectReference: {fileID: 0}
+    - target: {fileID: 261343388298970710, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
     - target: {fileID: 4265735082826765354, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -192,7 +204,7 @@ GameObject:
   - component: {fileID: 735435612}
   - component: {fileID: 735435611}
   - component: {fileID: 735435610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,6 +456,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a38e6e1c-6f52-4608-8dca-cb27a5166e97
     m_ActionName: Gameplay/RightTrigger[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5cd3570c-a9e8-4c49-91f2-6111e287047b
+    m_ActionName: Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
