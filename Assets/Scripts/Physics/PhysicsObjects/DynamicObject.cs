@@ -39,7 +39,7 @@ public class DynamicObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(analyser.IsLayerClose(groundLayer, worldRotation.Value) && Mathf.Abs(Vector3.Dot(body.velocity, worldRotation.Value * Vector3.down)) < Mathf.Epsilon)
+        if(analyser.IsLayerClose(groundLayer, worldRotation.Value))
         {
             data.SetGrounded(true);
             data.SetSafePosition(transform.position);
@@ -58,5 +58,10 @@ public class DynamicObject : MonoBehaviour
     public Vector3 LastSafePosition()
     {
         return data.LastSafePosition();
+    }
+
+    public Quaternion GetWorldRotation()
+    {
+        return worldRotation.Value;
     }
 }
