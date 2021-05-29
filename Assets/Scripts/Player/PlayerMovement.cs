@@ -2,12 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(RelativeLayerMaskQuery))]
+[RequireComponent(typeof(DynamicObject))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Tooltip("Reference to the world's rotation")]
-    [SerializeField] private QuaternionReference worldRotation;
-    [Space]
     [Header("Movement")]
     [Tooltip("How fast does the player start moving horizontally")]
     [SerializeField] private float horizontalAcceleration;
@@ -17,9 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How fast is the initial player jump velocity.")]
     [SerializeField] private float jumpVelocity;    
-    [Space]
-    [Tooltip("What layer do we consider ground for this player.")]
-    [SerializeField] private LayerMask groundLayer;
 
     //Saved input variables to apply in FixedUpdate
     private Vector2 inputDirection;
@@ -27,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Components
     private Rigidbody body;
-    private RelativeLayerMaskQuery analyser;
+    private DynamicObject analyser;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Components
         body = GetComponent<Rigidbody>();
-        analyser = GetComponent<RelativeLayerMaskQuery>();
+        analyser = GetComponent<DynamicObject>();
     }
 
     void FixedUpdate()
@@ -56,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 camera_forward = Camera.main.transform.forward;
         Vector3 camera_right = Camera.main.transform.right;
-        Vector3 world_up = worldRotation.Value * Vector3.up;
+        Vector3 world_up = analyser.GetWorldRotation() * Vector3.up;
 
         Vector3 flattened_camera_forward = camera_forward - Vector3.Dot(camera_forward, world_up) * world_up;
         Vector3 flattened_camera_right = camera_right - Vector3.Dot(camera_right, world_up) * world_up;
@@ -68,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            if(analyser.IsLayerClose(groundLayer, worldRotation.Value))
+            if(analyser.IsGrounded())
                 shouldJump = true;
         }
     }
@@ -80,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyHorizontalMovement(Vector3 movement)
     {
-        Vector3 world_up = worldRotation.Value * Vector3.up;
+        Vector3 world_up = analyser.GetWorldRotation() * Vector3.up;
         Vector3 body_horizontal_velocity = body.velocity - Vector3.Dot(body.velocity, world_up) * world_up;
 
         Vector3 velocity_offset = movement - body_horizontal_velocity;
@@ -96,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if (!shouldJump)
             return;
 
-        Vector3 jump_dir = worldRotation.Value * Vector3.up;
+        Vector3 jump_dir = analyser.GetWorldRotation() * Vector3.up;
         body.velocity += jumpVelocity * jump_dir;
 
         shouldJump = false;
