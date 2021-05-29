@@ -39,11 +39,10 @@ public class DynamicObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(analyser.IsLayerClose(groundLayer, worldRotation.Value))
+        if(analyser.IsLayerClose(groundLayer, worldRotation.Value) && Mathf.Abs(Vector3.Dot(body.velocity, worldRotation.Value * Vector3.down)) < Mathf.Epsilon)
         {
             data.SetGrounded(true);
-            if(Mathf.Abs(Vector3.Dot(body.velocity, worldRotation.Value * Vector3.down)) < Mathf.Epsilon )
-                data.SetSafePosition(transform.position);
+            data.SetSafePosition(transform.position);
         }
         else
         {
