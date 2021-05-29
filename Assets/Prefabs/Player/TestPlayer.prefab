@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4265735082826765352}
   - component: {fileID: 4265735082826765353}
   - component: {fileID: 4265735082826765356}
+  - component: {fileID: 1385252976460295177}
   - component: {fileID: 4265735082826765357}
   - component: {fileID: 1518754503120927866}
   - component: {fileID: 261343388298970710}
@@ -115,6 +116,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1385252976460295177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265735082826765354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530f7a77067b3184d8df3ab065ed9e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamicObjectDatas: {fileID: 11400000, guid: 3de8c7753cb60b4438ec7c78b62c52e4, type: 2}
+  worldRotation:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0, w: 0}
+    variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4265735082826765357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,15 +149,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldRotation:
-    useConstant: 1
+    useConstant: 0
     constantValue: {x: 0, y: 0, z: 0, w: 1}
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
   horizontalAcceleration: 50
   horizontalMaxSpeed: 10
   jumpVelocity: 25
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &1518754503120927866
 MonoBehaviour:
   m_ObjectHideFlags: 0

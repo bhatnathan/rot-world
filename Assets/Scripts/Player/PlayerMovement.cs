@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(RelativeLayerMaskQuery))]
+[RequireComponent(typeof(DynamicObject))]
 public class PlayerMovement : MonoBehaviour
 {
     [Tooltip("Reference to the world's rotation")]
@@ -17,9 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How fast is the initial player jump velocity.")]
     [SerializeField] private float jumpVelocity;    
-    [Space]
-    [Tooltip("What layer do we consider ground for this player.")]
-    [SerializeField] private LayerMask groundLayer;
 
     //Saved movement variables to apply in FixedUpdate
     private Vector3 movement; //The calculated movement we want to apply based on inputs
@@ -27,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Components
     private Rigidbody body;
-    private RelativeLayerMaskQuery analyser;
+    private DynamicObject analyser;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Components
         body = GetComponent<Rigidbody>();
-        analyser = GetComponent<RelativeLayerMaskQuery>();
+        analyser = GetComponent<DynamicObject>();
     }
 
     void FixedUpdate()
@@ -70,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            if(analyser.IsLayerClose(groundLayer, worldRotation.Value))
+            if(analyser.IsGrounded())
                 shouldJump = true;
         }
     }
