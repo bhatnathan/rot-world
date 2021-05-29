@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("What layer do we consider ground for this player.")]
     [SerializeField] private LayerMask groundLayer;
 
-    //Saved movement variables to apply in FixedUpdate
-    private Vector3 movement; //The calculated movement we want to apply based on inputs
+    //Saved input variables to apply in FixedUpdate
+    private Vector2 inputDirection;
     private bool shouldJump;
 
     //Components
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //Movement variables
-        movement = Vector3.zero;
+        inputDirection = Vector2.zero;
         shouldJump = false;
 
         //Components
@@ -43,15 +43,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyHorizontalMovement(movement);
+        ApplyHorizontalMovement(FetchDesiredHorizontalMovement());
         ApplyJump();
     }
 
     public void OnMove(InputAction.CallbackContext context) //Event from Player Input component.
     {
-        Vector2 input_direction = context.ReadValue<Vector2>();
-        float input_mag = 1f;
-        movement = input_mag * horizontalMaxSpeed * InputToWorldDirection(input_direction);
+        inputDirection = context.ReadValue<Vector2>();
     }
 
     private Vector3 InputToWorldDirection(Vector2 input_direction)
@@ -73,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
             if(analyser.IsLayerClose(groundLayer, worldRotation.Value))
                 shouldJump = true;
         }
+    }
+
+    private Vector3 FetchDesiredHorizontalMovement()
+    {
+        return inputDirection.magnitude * horizontalMaxSpeed * InputToWorldDirection(inputDirection);
     }
 
     private void ApplyHorizontalMovement(Vector3 movement)
