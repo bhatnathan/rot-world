@@ -39,7 +39,7 @@ public class DynamicObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(analyser.IsLayerClose(groundLayer, worldRotation.Value))
+        if(analyser.IsLayerDown(groundLayer, transform.position, worldRotation.Value))
         {
             data.SetGrounded(true);
             data.SetSafePosition(transform.position);
