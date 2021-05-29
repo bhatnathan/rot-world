@@ -19,9 +19,13 @@ public class RelativeLayerMaskQuery : MonoBehaviour
     /**
 	 * Returns whether or not layer is to the below, relative to rotation.
 	 */
-    public bool IsLayerClose(LayerMask layer, Quaternion rotation)
+    public bool IsLayerDown(LayerMask layer, Vector3 position, Quaternion rotation)
     {
-        Vector3 floor_pos = rotation * (transform.position + Vector3.down * (height * 0.5f + delta * 0.5f));
-        return Physics.OverlapBoxNonAlloc(floor_pos, new Vector3(width *0.5f, delta * 0.5f, depth * 0.5f), preallocatedCollider, rotation, layer) != 0;
+        return Physics.OverlapBoxNonAlloc(GetFloorPosition(position, rotation), new Vector3(width * 0.5f, delta * 0.5f, depth * 0.5f), preallocatedCollider, rotation, layer) != 0;
+    }
+
+    private Vector3 GetFloorPosition(Vector3 position, Quaternion rotation)
+    {
+        return position + (rotation * Vector3.down * (height * 0.5f + delta * 0.5f));
     }
 }
