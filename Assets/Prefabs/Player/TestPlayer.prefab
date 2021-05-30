@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1385252976460295177}
   - component: {fileID: 4265735082826765357}
   - component: {fileID: 1518754503120927866}
+  - component: {fileID: 9180218301881872892}
   - component: {fileID: 261343388298970710}
   m_Layer: 0
   m_Name: TestPlayer
@@ -136,6 +137,11 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  despawnLimit:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: ff5cc6fa51a602e43961ab49b941f798, type: 2}
+  onFallOffEvent: {fileID: 11400000, guid: a165a6cd1db9ae84eb6c93d5321f7467, type: 2}
 --- !u!114 &4265735082826765357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +173,34 @@ MonoBehaviour:
   height: 1
   depth: 0.98
   delta: 0.05
+--- !u!114 &9180218301881872892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265735082826765354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778443f9ab1e3a144bcc9dc2fb53e292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a165a6cd1db9ae84eb6c93d5321f7467, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4265735082826765357}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &261343388298970710
 MonoBehaviour:
   m_ObjectHideFlags: 0
