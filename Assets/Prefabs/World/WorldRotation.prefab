@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTimeStopped:
     useConstant: 1
-    constantValue: 0
+    constantValue: 1
     variable: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
 --- !u!114 &263376748743205273
 MonoBehaviour:
