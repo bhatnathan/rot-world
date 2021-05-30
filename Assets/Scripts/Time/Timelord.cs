@@ -9,13 +9,27 @@ public class Timelord : MonoBehaviour
     [Tooltip("List of all the active dynamic object's datas")]
     [SerializeField] private DynamicObjectDataList dynamicObjectDatas;
 
+    private bool shouldStopTime;
+
     public void OnTimeInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            TryStopTime();
+            shouldStopTime = true;            
         }
         else if (context.canceled)
+        {
+            shouldStopTime = false;            
+        }
+    }    
+
+    private void FixedUpdate()
+    {
+        if (!isTimeStopped.Value && shouldStopTime)
+        {
+            TryStopTime();
+        }
+        else if(isTimeStopped.Value && !shouldStopTime)
         {
             TryStartTime();
         }
@@ -23,7 +37,7 @@ public class Timelord : MonoBehaviour
 
     private void TryStopTime()
     {
-        if(!isTimeStopped.Value && AreDynamicObjectsGrounded())
+        if (AreDynamicObjectsGrounded())
         {
             isTimeStopped.SetValue(true);
             Debug.Log("Stop time");
@@ -32,11 +46,8 @@ public class Timelord : MonoBehaviour
 
     private void TryStartTime()
     {
-        if (isTimeStopped.Value)
-        {
-            isTimeStopped.SetValue(false);
-            Debug.Log("Start time");
-        }
+        isTimeStopped.SetValue(false);
+        Debug.Log("Start time");
     }
 
     private bool AreDynamicObjectsGrounded()
