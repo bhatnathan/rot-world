@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(DynamicObject))]
 public class PlayerMovement : MonoBehaviour
-{
+{    
     [Header("Movement")]
     [Tooltip("How fast does the player start moving horizontally")]
     [SerializeField] private float horizontalAcceleration;
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 velocity_offset = movement - body_horizontal_velocity;
 
-        float velocity_change_amount = horizontalAcceleration * Time.deltaTime;
+        float velocity_change_amount = horizontalAcceleration * Time.fixedDeltaTime;
         velocity_change_amount = Mathf.Clamp(velocity_change_amount, 0, velocity_offset.magnitude);
 
         body.velocity += velocity_offset.normalized * velocity_change_amount;

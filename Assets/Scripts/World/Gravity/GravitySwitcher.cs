@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GravitySwitcher : MonoBehaviour
 {
+    [Header("Variables")]
     [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionReference worldRotation;
+
+    [Header("Parameters")]
     [Tooltip("How strong is the force of gravity")]
     [SerializeField] private float gravityStrength;
 
