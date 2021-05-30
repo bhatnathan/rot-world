@@ -87,7 +87,7 @@ public class DynamicObject : MonoBehaviour
 
     private void CheckFallOff()
     {
-        if (-Vector3.Dot(transform.position, worldRotation.Value * Vector3.down) < despawnLimit.Value)
+        if (transform.position.magnitude > despawnLimit.Value)
             onFallOffEvent.Raise();
     }
 
