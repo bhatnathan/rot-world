@@ -95,10 +95,4 @@ public class PlayerMovement : MonoBehaviour
 
         shouldJump = false;
     }
-
-    public void OnDeath()
-    {
-        body.position = dynamicObject.LastSafePosition();
-        body.velocity = Vector3.zero;
-    }
 }

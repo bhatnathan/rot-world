@@ -16,12 +16,19 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private FloatReference despawnLimit;
     [Tooltip("Event to raise if the object falls out of range.")]
     [SerializeField] private GameEvent onFallOffEvent;
+    [Tooltip("Is this object essential to complete the level")]
+    [SerializeField] private bool isEssential;
 
-    private DynamicObjectData data = new DynamicObjectData();
+    private DynamicObjectData data;
 
     //Components
     private Rigidbody body;
     private RelativeLayerMaskQuery analyser;
+
+    void Awake()
+    {
+        data = new DynamicObjectData(isEssential);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -79,5 +86,11 @@ public class DynamicObject : MonoBehaviour
     {
         if (-Vector3.Dot(transform.position, worldRotation.Value * Vector3.down) < despawnLimit.Value)
             onFallOffEvent.Raise();
+    }
+
+    public void OnEssentialFallOff()
+    {
+        body.position = LastSafePosition();
+        body.velocity = Vector3.zero;
     }
 }
