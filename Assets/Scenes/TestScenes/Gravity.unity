@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldRotation
       objectReference: {fileID: 0}
+    - target: {fileID: 4194240920654859458, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
+      propertyPath: dynamicObjectDatas
+      value: 
+      objectReference: {fileID: 11400000, guid: 3de8c7753cb60b4438ec7c78b62c52e4, type: 2}
     - target: {fileID: 4194240920654859459, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
       propertyPath: isTimeStopped.variable
       value: 
