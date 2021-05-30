@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class GenericVariable<T> : ScriptableObject
 {
-    private T value;
+    [SerializeField] private T value;
 
     public void SetValue(T value)
     {

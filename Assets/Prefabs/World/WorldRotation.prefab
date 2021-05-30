@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4194240920654859458}
   - component: {fileID: 4194240920654859459}
   - component: {fileID: 263376748743205273}
+  - component: {fileID: 3904455850313593963}
   m_Layer: 0
   m_Name: WorldRotation
   m_TagString: Untagged
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldRotation: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
+  dynamicObjectDatas: {fileID: 11400000, guid: 3de8c7753cb60b4438ec7c78b62c52e4, type: 2}
 --- !u!114 &4194240920654859459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTimeStopped:
-    useConstant: 1
+    useConstant: 0
     constantValue: 1
     variable: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
 --- !u!114 &263376748743205273
@@ -186,3 +188,31 @@ MonoBehaviour:
     constantValue: {x: 0, y: 0, z: 0, w: 0}
     variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
   gravityStrength: 100
+--- !u!114 &3904455850313593963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194240920654859457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778443f9ab1e3a144bcc9dc2fb53e292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4194240920654859458}
+        m_TargetAssemblyTypeName: WorldRotator, Assembly-CSharp
+        m_MethodName: OnEssentialFallOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
