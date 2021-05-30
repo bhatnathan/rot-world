@@ -345,6 +345,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldRotation
       objectReference: {fileID: 0}
+    - target: {fileID: 4194240920654859459, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
+      propertyPath: isTimeStopped.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
+    - target: {fileID: 4194240920654859459, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
+      propertyPath: isTimeStopped.useConstant
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4194240920654859461, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -551,6 +559,18 @@ PrefabInstance:
     - target: {fileID: 4265735082826765354, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: horizontalAcceleration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: isTimeStopped.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
+    - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: isTimeStopped.useConstant
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size

@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(WorldRotator))]
 public class WorldRotationInputListener : MonoBehaviour
 {
+    [Tooltip("Reference to Is Time Stopped")]
+    [SerializeField] private BoolReference isTimeStopped;
+
     private WorldRotator worldRotator;
-    
     private Rotation rotationDirection;
 
     private void Awake()
@@ -52,7 +54,10 @@ public class WorldRotationInputListener : MonoBehaviour
 
     private void InvokeWorldRotation(Axis axis, Rotation rotation_direction)
     {
-        worldRotator.RotateDesiredCamera(axis, rotation_direction);
+        if (isTimeStopped.Value)
+        {
+            worldRotator.RotateDesiredCamera(axis, rotation_direction);
+        }
     }
     
     private bool IsInputPerformed(InputAction.CallbackContext context)

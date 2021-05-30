@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GravitySwitcher : MonoBehaviour
@@ -7,8 +5,6 @@ public class GravitySwitcher : MonoBehaviour
     [Header("Variables")]
     [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionReference worldRotation;
-    [Tooltip("Reference to the world's rotation")]
-    [SerializeField] private BoolVariable isTimeStopped;
 
     [Header("Parameters")]
     [Tooltip("How strong is the force of gravity")]
@@ -23,8 +19,6 @@ public class GravitySwitcher : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isTimeStopped.Value) { return; }
-
         if(worldRotation.Value != lastRotation)
         {            
             SetGravity(worldRotation.Value);
