@@ -11,8 +11,8 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private DynamicObjectDataList dynamicObjectDatas;
     [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionReference worldRotation;
-    [Tooltip("Where is the range limit to be considered fallen off the world.")]
-    [SerializeField] private FloatReference despawnLimit;
+    [Tooltip("The Tag for the Stage Bounds trigger collider.")]
+    [SerializeField] private string stageBoundsTag; //TODO: Replace with some sort of Tag system :)
     [Header("Parameters")]
     [Tooltip("Is this object essential to complete the level")]
     [SerializeField] private bool isEssential;
@@ -53,8 +53,7 @@ public class DynamicObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        SetData();
-        CheckFallOff();
+        SetData();        
     }
 
     public bool IsGrounded()
@@ -85,10 +84,12 @@ public class DynamicObject : MonoBehaviour
         }
     }
 
-    private void CheckFallOff()
+    private void OnTriggerExit(Collider other)
     {
-        if (transform.position.magnitude > despawnLimit.Value)
+        if (other.CompareTag(stageBoundsTag) && onFallOffEvent != null)
+        {
             onFallOffEvent.Raise();
+        }
     }
 
     public void OnEssentialFallOff()
