@@ -1,5 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Variables/Quaternion")]
 public class QuaternionVariable : GenericVariable<Quaternion>
 { }

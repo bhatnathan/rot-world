@@ -1,2 +1,5 @@
-public class BoolVariable : GenericVariableReference<bool>
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Variables/Bool")]
+public class BoolVariable : GenericVariable<bool>
 { }

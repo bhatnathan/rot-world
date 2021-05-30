@@ -135,12 +135,12 @@ GameObject:
   - component: {fileID: 42960641}
   - component: {fileID: 42960640}
   - component: {fileID: 42960639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &42960639
 BoxCollider:
@@ -218,6 +218,122 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &290951628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290951629}
+  - component: {fileID: 290951631}
+  - component: {fileID: 290951630}
+  m_Layer: 0
+  m_Name: Timelord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &290951629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290951628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290951630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290951628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 63aa0296b54871b4da22435937c7b229, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d8769456-c491-41b3-8257-a7f611628386
+    m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: decdbfd3-ee59-4933-be88-7d4982f2fa6f
+    m_ActionName: Gameplay/RotateAroundX[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c6508d3-40f7-47fe-b787-d861fceddd36
+    m_ActionName: Gameplay/RotateAroundY[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd4033e1-a411-4ead-98c9-498db6236316
+    m_ActionName: Gameplay/RotateAroundZ[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a38e6e1c-6f52-4608-8dca-cb27a5166e97
+    m_ActionName: Gameplay/RightTrigger
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5cd3570c-a9e8-4c49-91f2-6111e287047b
+    m_ActionName: Gameplay/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 290951631}
+        m_TargetAssemblyTypeName: Timelord, Assembly-CSharp
+        m_MethodName: OnTimeInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0132a1c9-38c0-4609-ba43-685434f50682
+    m_ActionName: Gameplay/StopTime[/Keyboard/leftShift]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &290951631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290951628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b868da56b1964a85752d5b4415e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTimeStopped: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
+  dynamicObjectDatas: {fileID: 11400000, guid: 3de8c7753cb60b4438ec7c78b62c52e4, type: 2}
 --- !u!1001 &417939258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +344,14 @@ PrefabInstance:
     - target: {fileID: 4194240920654859457, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
       propertyPath: m_Name
       value: WorldRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194240920654859459, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
+      propertyPath: isTimeStopped.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
+    - target: {fileID: 4194240920654859459, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
+      propertyPath: isTimeStopped.useConstant
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4194240920654859461, guid: a056bab6a301d6c48bc4024eb3c4a6aa, type: 3}
       propertyPath: m_RootOrder
@@ -435,6 +559,18 @@ PrefabInstance:
     - target: {fileID: 4265735082826765354, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: horizontalAcceleration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: isTimeStopped.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
+    - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: isTimeStopped.useConstant
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4265735082826765357, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
