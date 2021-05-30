@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Timelord : MonoBehaviour
+public class TimeLord : MonoBehaviour
 {
     [Tooltip("Reference to Is Time Stopped")]
     [SerializeField] private BoolVariable isTimeStopped;

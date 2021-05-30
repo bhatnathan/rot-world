@@ -56,7 +56,7 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (isTimeStopped.Value)
         {
-            worldRotator.RotateDesiredCamera(axis, rotation_direction);
+            worldRotator.RotateWorld(axis, rotation_direction);
         }
     }
     
