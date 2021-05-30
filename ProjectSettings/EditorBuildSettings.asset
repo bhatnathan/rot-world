@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TestLevels/UpsideDown.unity
+    guid: 87f75b88caa425e449fbbdc21ec6bc62
+  - enabled: 1
+    path: Assets/Scenes/TestLevels/FindTheEdge.unity
+    guid: 75fb60c8657f4004eb9eee8b7aacc731
+  - enabled: 1
+    path: Assets/Scenes/TestLevels/Jonas00.unity
+    guid: 94121ef630a3ed34a92eaa171c5770c2
   m_configObjects: {}

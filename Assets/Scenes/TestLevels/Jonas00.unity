@@ -659,6 +659,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2755330146382267908, guid: e1cb8e68fef6a2f4380aeed7a56f109b, type: 3}
+      propertyPath: loadScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2755330146382267919, guid: e1cb8e68fef6a2f4380aeed7a56f109b, type: 3}
       propertyPath: m_Name
       value: Goal
@@ -1156,6 +1160,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2287923035098062491, guid: e96489a08e1de684a806640b2b9d044b, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2287923035098062491, guid: e96489a08e1de684a806640b2b9d044b, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968814098416347012, guid: e96489a08e1de684a806640b2b9d044b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263798983896012633, guid: e96489a08e1de684a806640b2b9d044b, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6317781412687308520, guid: e96489a08e1de684a806640b2b9d044b, type: 3}
       propertyPath: m_Name
       value: CameraBase
