@@ -40,7 +40,7 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (IsInputPerformed(context))
         {
-            InvokeWorldRotation(Axis.Y, rotationDirection);
+            InvokeWorldRotation(Axis.Y, ~rotationDirection & Rotation.Counterclockwise);
         }
     }
 
@@ -48,7 +48,7 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (IsInputPerformed(context))
         {
-            InvokeWorldRotation(Axis.Z, rotationDirection);
+            InvokeWorldRotation(Axis.Z, ~rotationDirection & Rotation.Counterclockwise);
         }
     }
 

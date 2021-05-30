@@ -13,7 +13,20 @@ public class LevelSwitchTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        CheckIfValid(other);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        CheckIfValid(other);
+    }
+
+    private void CheckIfValid(Collider other)
+    {
         if (other.gameObject.tag == activationTag)
-            SceneManager.LoadScene(loadScene);
+        {
+            if (other.gameObject.GetComponent<DynamicObject>().IsGrounded())
+                SceneManager.LoadScene(loadScene);
+        }
     }
 }
