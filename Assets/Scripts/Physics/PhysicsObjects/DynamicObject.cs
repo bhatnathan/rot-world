@@ -6,18 +6,21 @@ using UnityEngine;
 [RequireComponent(typeof(RelativeLayerMaskQuery))]
 public class DynamicObject : MonoBehaviour
 {
+    [Header("Variables")]
     [Tooltip("List of all the active dynamic object's datas")]
     [SerializeField] private DynamicObjectDataList dynamicObjectDatas;
     [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionReference worldRotation;
-    [Tooltip("What layer do we consider ground for this object.")]
-    [SerializeField] private LayerMask groundLayer;
     [Tooltip("Where is the range limit to be considered fallen off the world.")]
     [SerializeField] private FloatReference despawnLimit;
-    [Tooltip("Event to raise if the object falls out of range.")]
-    [SerializeField] private GameEvent onFallOffEvent;
+    [Header("Parameters")]
     [Tooltip("Is this object essential to complete the level")]
     [SerializeField] private bool isEssential;
+    [Tooltip("What layer do we consider ground for this object.")]
+    [SerializeField] private LayerMask groundLayer;
+    [Header("Events")]
+    [Tooltip("Event to raise if the object falls out of range.")]
+    [SerializeField] private GameEvent onFallOffEvent;
 
     private DynamicObjectData data;
 
