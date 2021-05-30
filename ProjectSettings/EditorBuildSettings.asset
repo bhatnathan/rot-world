@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestScenes/InputSystem.unity
-    guid: be79830dfe8b5a6448b1b36995e201f2
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/TestLevels/UpsideDown.unity
     guid: 87f75b88caa425e449fbbdc21ec6bc62
   - enabled: 1
