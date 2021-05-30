@@ -148,10 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66af8544958c82e43bfa7b5e2ece1065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldRotation:
-    useConstant: 0
-    constantValue: {x: 0, y: 0, z: 0, w: 1}
-    variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
   horizontalAcceleration: 50
   horizontalMaxSpeed: 10
   jumpVelocity: 25
@@ -167,9 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906c90b31e6d0564f9e0d0342cee4992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 1
+  width: 0.98
   height: 1
-  depth: 1
+  depth: 0.98
   delta: 0.05
 --- !u!114 &261343388298970710
 MonoBehaviour:
