@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fb800455ba5e7ab4a8772ac1e6bd0eb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,15 +134,12 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0, w: 0}
     variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
+  stageBoundsTag: StageBounds
+  isEssential: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  despawnLimit:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: ff5cc6fa51a602e43961ab49b941f798, type: 2}
   onFallOffEvent: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
-  isEssential: 1
 --- !u!114 &4265735082826765357
 MonoBehaviour:
   m_ObjectHideFlags: 0
