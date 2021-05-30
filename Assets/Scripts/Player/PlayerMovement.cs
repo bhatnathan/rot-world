@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(DynamicObject))]
 public class PlayerMovement : MonoBehaviour
 {    
-    [Space]
     [Header("Movement")]
     [Tooltip("How fast does the player start moving horizontally")]
     [SerializeField] private float horizontalAcceleration;
