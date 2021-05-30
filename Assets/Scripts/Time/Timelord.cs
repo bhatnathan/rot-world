@@ -39,15 +39,13 @@ public class Timelord : MonoBehaviour
     {
         if (AreDynamicObjectsGrounded())
         {
-            isTimeStopped.SetValue(true);
-            Debug.Log("Stop time");
+            isTimeStopped.SetValue(true);            
         }
     }
 
     private void TryStartTime()
     {
-        isTimeStopped.SetValue(false);
-        Debug.Log("Start time");
+        isTimeStopped.SetValue(false);        
     }
 
     private bool AreDynamicObjectsGrounded()
