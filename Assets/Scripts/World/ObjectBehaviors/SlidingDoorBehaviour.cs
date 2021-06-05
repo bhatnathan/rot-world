@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SlidingDoorBehaviour : MonoBehaviour
 {
-    [Tooltip("How fast does the door slide into place")]
-    [SerializeField] private float speed;
     [Tooltip("Which direction does the door slide in")]
     [SerializeField] private Vector3 slideDir;
     [Tooltip("How far does the door slide")]
@@ -18,7 +16,6 @@ public class SlidingDoorBehaviour : MonoBehaviour
     [SerializeField] private GameObject meshObj;
 
     private bool shifted;
-    private Vector3 initialPosition;
     private Vector3 velocity;
     private bool animating;
 
@@ -27,7 +24,6 @@ public class SlidingDoorBehaviour : MonoBehaviour
     {
         slideDir.Normalize();
         shifted = false;
-        initialPosition = transform.position;
         velocity = Vector3.zero;
         animating = false;
     }
@@ -46,13 +42,13 @@ public class SlidingDoorBehaviour : MonoBehaviour
 
         if (!shifted && dot_value > MathConstants.smallValue)
         {
-            collObj.transform.position = slideDir * slideAmount;
+            collObj.transform.localPosition = slideDir * slideAmount;
             shifted = true;
             animating = true;
         }
         else if (shifted && dot_value < -MathConstants.smallValue)
         {
-            collObj.transform.position = Vector3.zero;
+            collObj.transform.localPosition = Vector3.zero;
             shifted = false;
             animating = true;
         }
@@ -65,17 +61,17 @@ public class SlidingDoorBehaviour : MonoBehaviour
         if (shifted)
         {
             velocity += slideDir * Physics.gravity.magnitude * Time.fixedDeltaTime;
-            meshObj.transform.position += velocity * Time.fixedDeltaTime;
+            meshObj.transform.localPosition += velocity * Time.fixedDeltaTime;
 
-            if(Vector3.Dot(meshObj.transform.position, slideDir) < 0)
+            if(Vector3.Dot(meshObj.transform.localPosition, slideDir) < 0)
             {
-                meshObj.transform.position = Vector3.zero;
+                meshObj.transform.localPosition = Vector3.zero;
                 velocity = Vector3.zero;
             }
 
-            if(meshObj.transform.position.magnitude > slideAmount)
+            if(meshObj.transform.localPosition.magnitude > slideAmount)
             {
-                meshObj.transform.position = slideDir * slideAmount;
+                meshObj.transform.localPosition = slideDir * slideAmount;
                 velocity = Vector3.zero;
                 animating = false;
             }
@@ -83,17 +79,17 @@ public class SlidingDoorBehaviour : MonoBehaviour
         else
         {
             velocity += slideDir * -Physics.gravity.magnitude * Time.fixedDeltaTime;
-            meshObj.transform.position += velocity * Time.fixedDeltaTime;
+            meshObj.transform.localPosition += velocity * Time.fixedDeltaTime;
 
-            if (meshObj.transform.position.magnitude > slideAmount)
+            if (meshObj.transform.localPosition.magnitude > slideAmount)
             {
-                meshObj.transform.position = slideDir * slideAmount;
+                meshObj.transform.localPosition = slideDir * slideAmount;
                 velocity = Vector3.zero;
             }
 
-            if (Vector3.Dot(meshObj.transform.position, slideDir) < 0)
+            if (Vector3.Dot(meshObj.transform.localPosition, slideDir) < 0)
             {
-                meshObj.transform.position = Vector3.zero;
+                meshObj.transform.localPosition = Vector3.zero;
                 velocity = Vector3.zero;
                 animating = false;
             }
