@@ -95,4 +95,11 @@ public class SlidingDoorBehaviour : MonoBehaviour
             }
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + slideAmount * slideDir);
+        Gizmos.DrawWireCube(transform.position + slideAmount * slideDir, meshObj.transform.localScale);
+    }
 }
