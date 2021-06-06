@@ -45,4 +45,9 @@ public class WorldRotator : MonoBehaviour
     {
         worldRotation.SetValue(latestSafeRotation);
     }
+
+    public void OnLevelReset()
+    {
+        worldRotation.SetValue(initialRotation);
+    }
 }

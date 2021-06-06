@@ -23,6 +23,7 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private GameEvent onFallOffEvent;
 
     private DynamicObjectData data;
+    private Vector3 initialPos;
 
     //Components
     private Rigidbody body;
@@ -36,6 +37,8 @@ public class DynamicObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initialPos = transform.position;
+
         body = GetComponent<Rigidbody>();
         analyser = GetComponent<RelativeLayerMaskQuery>();
     }
@@ -95,6 +98,12 @@ public class DynamicObject : MonoBehaviour
     public void OnEssentialFallOff()
     {
         body.position = LastSafePosition();
+        body.velocity = Vector3.zero;
+    }
+
+    public void OnLevelReset()
+    {
+        body.position = initialPos;
         body.velocity = Vector3.zero;
     }
 }
