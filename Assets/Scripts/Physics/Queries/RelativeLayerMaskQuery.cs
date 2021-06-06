@@ -16,6 +16,13 @@ public class RelativeLayerMaskQuery : MonoBehaviour
 
     private Collider[] preallocatedCollider = new Collider[1];
 
+    void Start()
+    {
+        width *= transform.localScale.x;
+        height *= transform.localScale.y;
+        depth *= transform.localScale.z;
+    }
+
     /**
 	 * Returns whether or not layer is to the below, relative to rotation.
 	 */
