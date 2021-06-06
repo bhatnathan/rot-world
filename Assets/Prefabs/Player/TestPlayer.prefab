@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906c90b31e6d0564f9e0d0342cee4992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 0.98
+  width: 1
   height: 1
-  depth: 0.98
+  depth: 1
   delta: 0.05
 --- !u!114 &9180218301881872892
 MonoBehaviour:

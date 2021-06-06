@@ -76,7 +76,8 @@ public class DynamicObject : MonoBehaviour
 
     private void SetData()
     {
-        if (analyser.IsLayerDown(groundLayer, transform.position, worldRotation.Value))
+        if (analyser.IsLayerDown(groundLayer, transform.position, worldRotation.Value) 
+            && Mathf.Abs(Vector3.Dot(worldRotation.Value * Vector3.down, body.velocity)) < 1e-6f)
         {
             data.SetGrounded(true);
             data.SetSafePosition(transform.position);
