@@ -37,9 +37,9 @@ public class SlidingDoorBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        SetSafe();
         SetShift();
         Animate();
-        SetSafe();
     }
 
     private void SetShift()
@@ -107,10 +107,7 @@ public class SlidingDoorBehaviour : MonoBehaviour
 
     private void SetSafe()
     {
-        if (!potentialUnsafeRotation)
-            return;
-
-        if(dynamicObjectDatas.Values.All(obj => !obj.IsEssential() || obj.IsGrounded()))
+        if(potentialUnsafeRotation && dynamicObjectDatas.Values.All(obj => !obj.IsEssential() || obj.IsGrounded()))
         {
             potentialUnsafeRotation = false;
         }
