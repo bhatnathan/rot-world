@@ -13,7 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [Header("Jumping")]
     [Tooltip("How fast is the initial player jump velocity.")]
-    [SerializeField] private float jumpVelocity;    
+    [SerializeField] private float jumpVelocity;
+    [Header("Resetting")]
+    [Tooltip("Event to raise if the level is reset.")]
+    [SerializeField] private GameEvent onResetEvent;
 
     //Saved input variables to apply in FixedUpdate
     private Vector2 inputDirection;
@@ -64,6 +67,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if(dynamicObject.IsGrounded())
                 shouldJump = true;
+        }
+    }
+
+    public void OnResetLevel(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (onResetEvent != null)
+                onResetEvent.Raise();
         }
     }
 
