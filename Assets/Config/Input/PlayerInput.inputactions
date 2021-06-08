@@ -315,7 +315,7 @@
                     "id": "142851b1-a28b-43ef-8293-ea5781badd55",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "StickDeadzone(min=0.3,max=0.7)",
+                    "processors": "",
                     "groups": "",
                     "action": "Rotate",
                     "isComposite": false,

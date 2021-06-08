@@ -22,7 +22,7 @@ public class Vector2ToRotationConfig : ScriptableObject
     public Rotation Vector2ToRotation(Vector2 vector)
     {        
         float angle = VectorUtils.Vec2ToRad(vector) * Mathf.Rad2Deg;
-        angle = (angle < 0f) ? angle + 360f : angle; //Make negative angles positive.
+        angle = (angle < 0f) ? angle + 360f : angle; //Make negative angles positive.        
 
         if(mappings.Exists(mapping => MappingPredicate(mapping, angle))) //Can't check result of Find for null as structs can't be null.
         {

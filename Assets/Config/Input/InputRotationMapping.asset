@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ead47f6c30b310479a09414c904f2d4, type: 3}
   m_Name: InputRotationMapping
   m_EditorClassIdentifier: 
-  rotationIntervals:
-  - minAngle: 0
+  mappings:
+  - minAngle: -1
     maxAngle: 70
     rotation:
       axis: 3
