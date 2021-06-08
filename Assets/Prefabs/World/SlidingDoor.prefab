@@ -135,6 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8982650599976062618}
   - component: {fileID: 8982650599976062619}
+  - component: {fileID: 7943055435253999921}
+  - component: {fileID: 6789232910210598746}
   m_Layer: 0
   m_Name: SlidingDoor
   m_TagString: Untagged
@@ -172,9 +174,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slideDir: {x: 1, y: 0, z: 0}
   slideAmount: 1
+  collObj: {fileID: 8982650599776998993}
+  meshObj: {fileID: 8982650598259371044}
   worldRotation:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0, w: 0}
     variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
-  collObj: {fileID: 8982650599776998993}
-  meshObj: {fileID: 8982650598259371044}
+  dynamicObjectDatas: {fileID: 11400000, guid: 3de8c7753cb60b4438ec7c78b62c52e4, type: 2}
+--- !u!114 &7943055435253999921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8982650599976062693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778443f9ab1e3a144bcc9dc2fb53e292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8982650599976062619}
+        m_TargetAssemblyTypeName: SlidingDoorBehaviour, Assembly-CSharp
+        m_MethodName: OnEssentialFallOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6789232910210598746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8982650599976062693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778443f9ab1e3a144bcc9dc2fb53e292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 5445e10882d5f2c40a073e4d94651ec1, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8982650599976062619}
+        m_TargetAssemblyTypeName: SlidingDoorBehaviour, Assembly-CSharp
+        m_MethodName: OnLevelReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

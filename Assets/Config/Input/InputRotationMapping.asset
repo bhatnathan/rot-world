@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ead47f6c30b310479a09414c904f2d4, type: 3}
+  m_Name: InputRotationMapping
+  m_EditorClassIdentifier: 
+  mappings:
+  - minAngle: -1
+    maxAngle: 70
+    rotation:
+      axis: 3
+      direction: 0
+  - minAngle: 70
+    maxAngle: 110
+    rotation:
+      axis: 2
+      direction: 0
+  - minAngle: 110
+    maxAngle: 180
+    rotation:
+      axis: 1
+      direction: 0
+  - minAngle: 180
+    maxAngle: 250
+    rotation:
+      axis: 3
+      direction: 1
+  - minAngle: 250
+    maxAngle: 290
+    rotation:
+      axis: 2
+      direction: 1
+  - minAngle: 290
+    maxAngle: 360
+    rotation:
+      axis: 1
+      direction: 1

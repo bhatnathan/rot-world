@@ -6,9 +6,10 @@ public class WorldRotationInputListener : MonoBehaviour
 {
     [Tooltip("Reference to Is Time Stopped")]
     [SerializeField] private BoolReference isTimeStopped;
+    [SerializeField] private Vector2ToRotationConfig rotationInputMapping;
 
     private WorldRotator worldRotator;
-    private Rotation rotationDirection;
+    private Direction rotationDirection;
 
     private void Awake()
     {
@@ -19,11 +20,11 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (context.started)
         {
-            rotationDirection = Rotation.Counterclockwise;
+            rotationDirection = Direction.Counterclockwise;
         }
         else if(context.canceled)
         {
-            rotationDirection = Rotation.Clockwise;
+            rotationDirection = Direction.Clockwise;
         }
     }
 
@@ -31,7 +32,7 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (IsInputPerformed(context))
         {            
-            InvokeWorldRotation(Axis.X, rotationDirection);
+            InvokeWorldRotation(new Rotation(Axis.X, rotationDirection));
         }
     }
 
@@ -40,7 +41,7 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (IsInputPerformed(context))
         {
-            InvokeWorldRotation(Axis.Y, ~rotationDirection & Rotation.Counterclockwise);
+            InvokeWorldRotation(new Rotation(Axis.Y, ~rotationDirection & Direction.Counterclockwise));
         }
     }
 
@@ -48,15 +49,24 @@ public class WorldRotationInputListener : MonoBehaviour
     {
         if (IsInputPerformed(context))
         {
-            InvokeWorldRotation(Axis.Z, ~rotationDirection & Rotation.Counterclockwise);
+            InvokeWorldRotation(new Rotation(Axis.Z, ~rotationDirection & Direction.Counterclockwise));
         }
     }
 
-    private void InvokeWorldRotation(Axis axis, Rotation rotation_direction)
+    public void OnRotate(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {            
+            Rotation rotation = rotationInputMapping.Vector2ToRotation(context.ReadValue<Vector2>());
+            InvokeWorldRotation(rotation);
+        }
+    }
+
+    private void InvokeWorldRotation(Rotation rotation)
     {
         if (isTimeStopped.Value)
         {
-            worldRotator.RotateWorld(axis, rotation_direction);
+            worldRotator.RotateWorld(rotation);
         }
     }
     

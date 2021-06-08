@@ -25,10 +25,10 @@ public class WorldRotator : MonoBehaviour
         SetSafePosition();
     }
 
-    public void RotateWorld(Axis axis, Rotation direction)
+    public void RotateWorld(Rotation rotation)
     {        
-        Vector3 axis_vector = AxisUtils.AxisToVector(axis);
-        worldRotation.SetValue(Quaternion.AngleAxis(direction.Equals(Rotation.Clockwise) ? 90 : -90, worldRotation.Value * axis_vector) * worldRotation.Value);
+        Vector3 axis_vector = AxisUtils.AxisToVector(rotation.axis);
+        worldRotation.SetValue(Quaternion.AngleAxis(rotation.direction.Equals(Direction.Clockwise) ? 90 : -90, worldRotation.Value * axis_vector) * worldRotation.Value);
         potentialUnsafeRotation = true;
     }
 
@@ -44,5 +44,10 @@ public class WorldRotator : MonoBehaviour
     public void OnEssentialFallOff()
     {
         worldRotation.SetValue(latestSafeRotation);
+    }
+
+    public void OnLevelReset()
+    {
+        worldRotation.SetValue(initialRotation);
     }
 }
