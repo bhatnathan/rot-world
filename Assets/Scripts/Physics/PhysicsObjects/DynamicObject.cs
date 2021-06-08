@@ -104,7 +104,7 @@ public class DynamicObject : MonoBehaviour
 
     public void OnLevelReset()
     {
-        body.position = initialPos;
+        transform.position = initialPos;
         body.velocity = Vector3.zero;
     }
 }
