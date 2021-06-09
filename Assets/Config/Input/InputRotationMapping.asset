@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InputRotationMapping
   m_EditorClassIdentifier: 
   mappings:
-  - minAngle: -1
+  - minAngle: 0
     maxAngle: 70
     rotation:
       axis: 3
