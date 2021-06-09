@@ -141,6 +141,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7004f495-5365-46f7-8390-97cb66dbb1aa
     m_ActionName: Gameplay/ResetLevel[/Keyboard/r,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4194240920654859459}
+        m_TargetAssemblyTypeName: WorldRotationInputListener, Assembly-CSharp
+        m_MethodName: OnRotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 884e7490-96c6-4e3d-8dd6-f1068e105716
+    m_ActionName: Gameplay/Rotate[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -176,6 +192,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 1
     variable: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
+  rotationInputMapping: {fileID: 11400000, guid: ebef3ea3f63eaa547827061891eedadf, type: 2}
 --- !u!114 &263376748743205273
 MonoBehaviour:
   m_ObjectHideFlags: 0
