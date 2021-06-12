@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 263376748743205273}
   - component: {fileID: 3904455850313593963}
   - component: {fileID: 7172797582904183920}
+  - component: {fileID: 309254960}
   m_Layer: 0
   m_Name: WorldRotation
   m_TagString: Untagged
@@ -143,9 +144,9 @@ MonoBehaviour:
     m_ActionName: Gameplay/ResetLevel[/Keyboard/r,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4194240920654859459}
-        m_TargetAssemblyTypeName: WorldRotationInputListener, Assembly-CSharp
-        m_MethodName: OnRotate
+      - m_Target: {fileID: 309254960}
+        m_TargetAssemblyTypeName: Vector2InputDeadzone, Assembly-CSharp
+        m_MethodName: OnInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTimeStopped:
-    useConstant: 0
+    useConstant: 1
     constantValue: 1
     variable: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
   rotationInputMapping: {fileID: 11400000, guid: ebef3ea3f63eaa547827061891eedadf, type: 2}
@@ -266,3 +267,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &309254960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194240920654859457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c509e5488763542b074348c53ebcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadzone: 0.75
+  OnInputStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4194240920654859459}
+        m_TargetAssemblyTypeName: WorldRotationInputListener, Assembly-CSharp
+        m_MethodName: OnRotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnInputCanceled:
+    m_PersistentCalls:
+      m_Calls: []
