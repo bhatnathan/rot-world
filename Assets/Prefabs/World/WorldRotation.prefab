@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTimeStopped:
-    useConstant: 1
+    useConstant: 0
     constantValue: 1
     variable: {fileID: 11400000, guid: 0f86695ec020656469e20498a1230c38, type: 2}
   rotationInputMapping: {fileID: 11400000, guid: ebef3ea3f63eaa547827061891eedadf, type: 2}
