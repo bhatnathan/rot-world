@@ -6,7 +6,7 @@ public class WorldRotationInputListener : MonoBehaviour
 {
     [Tooltip("Reference to Is Time Stopped")]
     [SerializeField] private BoolReference isTimeStopped;
-    [SerializeField] private Vector2ToRotationConfig rotationInputMapping;
+    [SerializeField] private Vector2ToRotationConfig rotationInputMapping;    
 
     private WorldRotator worldRotator;
     private Direction rotationDirection;
@@ -53,15 +53,10 @@ public class WorldRotationInputListener : MonoBehaviour
         }
     }
 
-    public void OnRotate(InputAction.CallbackContext context)
+    public void OnRotate(Vector2 input_value)
     {
-        Debug.Log("OnRotate");
-        if (context.started)        
-        {
-            Debug.Log("OnRotate Started");
-            Rotation rotation = rotationInputMapping.Vector2ToRotation(context.ReadValue<Vector2>());
-            InvokeWorldRotation(rotation);
-        }
+        Rotation rotation = rotationInputMapping.Vector2ToRotation(input_value);
+        InvokeWorldRotation(rotation);
     }
 
     private void InvokeWorldRotation(Rotation rotation)
