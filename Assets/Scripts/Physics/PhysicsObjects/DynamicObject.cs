@@ -13,6 +13,8 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private QuaternionReference worldRotation;
     [Tooltip("The Tag for the Stage Bounds trigger collider.")]
     [SerializeField] private string stageBoundsTag; //TODO: Replace with some sort of Tag system :)
+    [Tooltip("The Tag for the Death Ground trigger collider.")]
+    [SerializeField] private string deathGroundTag; //TODO: Replace with some sort of Tag system :)
     [Header("Parameters")]
     [Tooltip("Is this object essential to complete the level")]
     [SerializeField] private bool isEssential;
@@ -91,6 +93,14 @@ public class DynamicObject : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(stageBoundsTag) && onFallOffEvent != null)
+        {
+            onFallOffEvent.Raise();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag(deathGroundTag) && onFallOffEvent != null)
         {
             onFallOffEvent.Raise();
         }

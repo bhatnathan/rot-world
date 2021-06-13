@@ -14,31 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mappings:
   - minAngle: 0
-    maxAngle: 70
+    maxAngle: 80
     rotation:
       axis: 3
       direction: 0
-  - minAngle: 70
-    maxAngle: 110
+  - minAngle: 80
+    maxAngle: 100
     rotation:
       axis: 2
       direction: 0
-  - minAngle: 110
+  - minAngle: 100
     maxAngle: 180
     rotation:
       axis: 1
       direction: 0
   - minAngle: 180
-    maxAngle: 250
+    maxAngle: 260
     rotation:
       axis: 3
       direction: 1
-  - minAngle: 250
-    maxAngle: 290
+  - minAngle: 260
+    maxAngle: 280
     rotation:
       axis: 2
       direction: 1
-  - minAngle: 290
+  - minAngle: 280
     maxAngle: 360
     rotation:
       axis: 1
