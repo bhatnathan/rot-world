@@ -16,7 +16,7 @@ public class LevelBuilderEditor : Editor
     }
 
     int prefabIndex = 0;
-    EditMode editMode = EditMode.Create;    
+    EditMode editMode = EditMode.None;
 
     #region Inspector
     public override void OnInspectorGUI()
@@ -54,16 +54,27 @@ public class LevelBuilderEditor : Editor
     #endregion
 
     #region Scene
-    void OnSceneGUI()
-    {
-        LevelBuilder level_builder = (LevelBuilder)target;
 
+    void OnSceneGUI()
+    {        
+        //target maps to the currently selected object, i.e. what is visible in the inspector.
+        LevelBuilder level_builder = (LevelBuilder)target;
         if (editMode.Equals(EditMode.None) || level_builder == null) { return; }
 
+        //Force redraw of scene GUI when mouse moves.
+        if (Event.current.type == EventType.MouseMove) { SceneView.RepaintAll(); }
+
+
+        Ray worldRay = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
+        RaycastHit hitInfo;
+
+        //Return if mouse isn't over an object.
+        if (!Physics.Raycast(worldRay, out hitInfo)) { return; }
+
+        DrawPreview(hitInfo);
+        
         if (Event.current.type == EventType.MouseUp && Event.current.button == 1)
-        {
-            Ray worldRay = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
-            RaycastHit hitInfo;
+        {            
 
             if (Physics.Raycast(worldRay, out hitInfo))
             {
@@ -86,9 +97,32 @@ public class LevelBuilderEditor : Editor
         }
     }
 
+    private void DrawPreview(RaycastHit hit_info)
+    {
+        switch (editMode)
+        {
+            case EditMode.Create:
+                Handles.color = Color.white;
+                Handles.DrawWireCube(CalculatePositionFromCollider(hit_info), Vector3.one);
+                break;
+
+            case EditMode.Edit:
+                Handles.color = Color.white;
+                Handles.DrawWireCube(hit_info.collider.gameObject.transform.position, Vector3.one);
+                break;
+                
+            case EditMode.Destroy:
+                Handles.color = Color.red;
+                Handles.DrawWireCube(hit_info.collider.gameObject.transform.position, Vector3.one);
+                break;
+        }
+
+    }
+
     private void Create(LevelBuilder level_builder, RaycastHit hitInfo)
     {
         Vector3 spawnPoint = CalculatePositionFromCollider(hitInfo);
+        if(Mathf.Approximately(spawnPoint.sqrMagnitude, 0f)) { return; }
         GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(level_builder.GetActivePrefab(), level_builder.transform);
         go.transform.position = spawnPoint;
     }
@@ -117,8 +151,6 @@ public class LevelBuilderEditor : Editor
 
         return objectPosition + primaryDirectionVector;
     }
-
-    
 
     #endregion    
 

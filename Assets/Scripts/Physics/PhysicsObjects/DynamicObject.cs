@@ -12,9 +12,9 @@ public class DynamicObject : MonoBehaviour
     [Tooltip("Reference to the world's rotation")]
     [SerializeField] private QuaternionReference worldRotation;
     [Tooltip("The Tag for the Stage Bounds trigger collider.")]
-    [SerializeField] private string stageBoundsTag; //TODO: Replace with some sort of Tag system :)
+    [SerializeField] private string stageBoundsTag = "StageBounds"; //TODO: Replace with some sort of Tag system :)
     [Tooltip("The Tag for the Death Ground trigger collider.")]
-    [SerializeField] private string deathGroundTag; //TODO: Replace with some sort of Tag system :)
+    [SerializeField] private string deathGroundTag = "DeathGround"; //TODO: Replace with some sort of Tag system :)
     [Header("Parameters")]
     [Tooltip("Is this object essential to complete the level")]
     [SerializeField] private bool isEssential;
