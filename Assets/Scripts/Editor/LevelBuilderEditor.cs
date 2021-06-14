@@ -17,6 +17,7 @@ public class LevelBuilderEditor : Editor
 
     int prefabIndex = 0;
     EditMode editMode = EditMode.None;
+    int levelLayer;
 
     #region Inspector
     public override void OnInspectorGUI()
@@ -28,10 +29,10 @@ public class LevelBuilderEditor : Editor
             editMode = EditMode.None;
             return; 
         }
-
+           
         ShowPrefabDropdown(level_builder);
         ShowEditMode();
-    }    
+    }        
 
     private void ShowPrefabDropdown(LevelBuilder level_builder)
     {
@@ -50,6 +51,8 @@ public class LevelBuilderEditor : Editor
     {
         GUILayout.Label("Edit Mode");
         editMode = (EditMode)EditorGUILayout.EnumPopup(editMode, new GUILayoutOption[0]);
+        GUILayout.Label("Edit Layer");
+        levelLayer = EditorGUILayout.LayerField(levelLayer, new GUILayoutOption[0]);        
     }
     #endregion
 
@@ -68,37 +71,32 @@ public class LevelBuilderEditor : Editor
         Ray worldRay = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
         RaycastHit hitInfo;
 
-        //Return if mouse isn't over an object.
-        if (!Physics.Raycast(worldRay, out hitInfo)) { return; }
-
+        //Return if mouse isn't over an object.                
+        if (!Physics.Raycast(worldRay.origin, worldRay.direction, out hitInfo, Mathf.Infinity, 1 << levelLayer)) { return; }
+        
         DrawPreview(hitInfo);
         
         if (Event.current.type == EventType.MouseUp && Event.current.button == 1)
         {            
-
-            if (Physics.Raycast(worldRay, out hitInfo))
+             switch (editMode)
             {
-                switch (editMode)
-                {
-                    case EditMode.Create:
-                        Create(level_builder, hitInfo);
-                        break;
+                case EditMode.Create:
+                    Create(level_builder, hitInfo);
+                    break;
 
-                    case EditMode.Edit:
-                        Edit(level_builder, hitInfo);
-                        break;
+                case EditMode.Edit:
+                    Edit(level_builder, hitInfo);
+                    break;
 
-                    case EditMode.Destroy:
-                        Destroy(level_builder, hitInfo);
-                        break;
-                }
-            }
-            
+                case EditMode.Destroy:
+                    Destroy(level_builder, hitInfo);
+                    break;
+            }                        
         }
     }
 
     private void DrawPreview(RaycastHit hit_info)
-    {
+    {        
         switch (editMode)
         {
             case EditMode.Create:
@@ -140,7 +138,7 @@ public class LevelBuilderEditor : Editor
     }
 
     private Vector3 CalculatePositionFromCollider(RaycastHit hitInfo)
-    {
+    {        
         Vector3 objectPosition = hitInfo.collider.gameObject.transform.position;
         Vector3 hitPosition = hitInfo.point;
         Vector3 directionVector = hitPosition - objectPosition;

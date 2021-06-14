@@ -187,6 +187,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1039321441}
     m_Modifications:
+    - target: {fileID: 566225958549018959, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218652790499945752, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929329628770672424, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027473900710695329, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5940575109371872277, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -234,6 +250,14 @@ PrefabInstance:
     - target: {fileID: 5940575109371872279, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
       propertyPath: m_Name
       value: GrassCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484420514683990503, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823024112482500306, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05c052e2a4f31443b31366ba1b93cb0, type: 3}
