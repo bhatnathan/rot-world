@@ -11,7 +11,7 @@ public class CubeRotator : MonoBehaviour
 
     private void Awake()
     {
-        transform.localRotation = Quaternion.Euler(new Vector3(GetRandomRotation(), GetRandomRotation()));
+        model.transform.localRotation = Quaternion.Euler(new Vector3(GetRandomRotation(), GetRandomRotation()));
     }
 
     private float GetRandomRotation()

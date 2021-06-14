@@ -5,5 +5,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class LevelBuilderPrefabs : ScriptableObject
 {
-    public List<GameObject> prefabs;
+    [SerializeField] private List<GameObject> prefabs;
+
+    public List<GameObject> Prefabs
+    {
+        get { return prefabs; }
+    }
 }

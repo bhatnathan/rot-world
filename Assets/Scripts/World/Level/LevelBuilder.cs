@@ -19,7 +19,7 @@ public class LevelBuilder : MonoBehaviour
 
     public List<GameObject> GetPrefabList()
     {
-        return prefabList == null ? new List<GameObject>() : prefabList.prefabs;
+        return prefabList == null ? new List<GameObject>() : prefabList.Prefabs;
     }
 
 }
