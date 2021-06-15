@@ -136,6 +136,7 @@ MonoBehaviour:
     constantValue: {x: 0, y: 0, z: 0, w: 0}
     variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
   stageBoundsTag: StageBounds
+  deathGroundTag: DeathGround
   isEssential: 1
   groundLayer:
     serializedVersion: 2
@@ -156,7 +157,6 @@ MonoBehaviour:
   horizontalAcceleration: 100
   horizontalMaxSpeed: 10
   jumpVelocity: 25
-  resetTime: 0
   onResetEvent: {fileID: 11400000, guid: 5445e10882d5f2c40a073e4d94651ec1, type: 2}
 --- !u!114 &1518754503120927866
 MonoBehaviour:
@@ -323,6 +323,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7004f495-5365-46f7-8390-97cb66dbb1aa
     m_ActionName: Gameplay/ResetLevel[/Keyboard/r,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 884e7490-96c6-4e3d-8dd6-f1068e105716
+    m_ActionName: Gameplay/Rotate[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

@@ -55,8 +55,8 @@ public class WorldRotationInputListener : MonoBehaviour
 
     public void OnRotate(Vector2 input_value)
     {
-         Rotation rotation = rotationInputMapping.Vector2ToRotation(input_value);
-         InvokeWorldRotation(rotation);        
+        Rotation rotation = rotationInputMapping.Vector2ToRotation(input_value);
+        InvokeWorldRotation(rotation);
     }
 
     private void InvokeWorldRotation(Rotation rotation)
