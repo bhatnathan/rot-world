@@ -8,17 +8,11 @@ public class BGMPlayer : MonoBehaviour
     [Tooltip("Audio Source with music clip to play.")]
     [SerializeField] private AudioSource audioSource;
 
-    private bool hasPlayed = false;
+    private bool isMain = false;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioSource.Play();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -31,25 +25,31 @@ public class BGMPlayer : MonoBehaviour
             if (bgm_player == this)
                 continue;
 
-            if (bgm_player.GetBGMName() == GetBGMName())
-                if(hasPlayed)
-                    Destroy(bgm_player.gameObject);
-                else
-                    Destroy(gameObject);
-            else if (hasPlayed)
-                Destroy(gameObject);
+            if (bgm_player.GetBGMName() != GetBGMName())
+                audioSource.clip = bgm_player.GetAudioClip();
+
+            if (isMain)
+                Destroy(bgm_player.gameObject);
         }
+
+        isMain = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        hasPlayed = true;
+        if (!audioSource.isPlaying)
+            audioSource.Play();
     }
 
     public string GetBGMName()
     {
         return audioSource.clip.name;
+    }
+
+    public AudioClip GetAudioClip()
+    {
+        return audioSource.clip;
     }
 
     void OnEnable()
@@ -60,5 +60,6 @@ public class BGMPlayer : MonoBehaviour
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        audioSource.Stop();
     }
 }
