@@ -20,6 +20,9 @@ public class BGMPlayer : MonoBehaviour
         //Remove Duplicates
         BGMPlayer[] collection = FindObjectsOfType<BGMPlayer>();
 
+        if (isMain && collection.Length == 1)
+            Destroy(gameObject);
+
         foreach (BGMPlayer bgm_player in collection)
         {
             if (bgm_player == this)
