@@ -23,6 +23,8 @@ public class DynamicObject : MonoBehaviour
     [Header("Events")]
     [Tooltip("Event to raise if the object falls out of range.")]
     [SerializeField] private GameEvent onFallOffEvent;
+    [Tooltip("Event to raise if the object goes from not grounded to grounded.")]
+    [SerializeField] private GameEvent onGroundedEvent;
 
     private DynamicObjectData data;
     private Vector3 initialPos;
@@ -81,6 +83,12 @@ public class DynamicObject : MonoBehaviour
         if (analyser.IsLayerDown(groundLayer, transform.position, worldRotation.Value) 
             && Mathf.Abs(Vector3.Dot(worldRotation.Value * Vector3.down, body.velocity.normalized)) < MathConstants.smallValue)
         {
+            if(!data.IsGrounded())
+            {
+                if (onGroundedEvent != null)
+                    onGroundedEvent.Raise();
+            }
+
             data.SetGrounded(true);
             data.SetSafePosition(transform.position);
         }
