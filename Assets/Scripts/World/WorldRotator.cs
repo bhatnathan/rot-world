@@ -7,6 +7,8 @@ public class WorldRotator : MonoBehaviour
     [SerializeField] private QuaternionVariable worldRotation;
     [Tooltip("List of all the active dynamic object's datas")]
     [SerializeField] private DynamicObjectDataList dynamicObjectDatas;
+    [Tooltip("Event to raise on world rotation.")]
+    [SerializeField] private GameEvent onRotateEvent;
 
     private Quaternion initialRotation;
     private Quaternion latestSafeRotation;
@@ -30,6 +32,9 @@ public class WorldRotator : MonoBehaviour
         Vector3 axis_vector = AxisUtils.AxisToVector(rotation.axis);
         worldRotation.SetValue(Quaternion.AngleAxis(rotation.direction.Equals(Direction.Clockwise) ? 90 : -90, worldRotation.Value * axis_vector) * worldRotation.Value);
         potentialUnsafeRotation = true;
+
+        if (onRotateEvent != null)
+            onRotateEvent.Raise();
     }
 
     private void SetSafePosition()

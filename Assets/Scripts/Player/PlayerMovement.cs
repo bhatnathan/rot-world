@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How fast is the initial player jump velocity.")]
     [SerializeField] private float jumpVelocity;
+    [Tooltip("Event to raise on jump.")]
+    [SerializeField] private GameEvent onJumpEvent;
     [Header("Resetting")]
     [Tooltip("Event to raise if the level is reset.")]
     [SerializeField] private GameEvent onResetEvent;
@@ -104,6 +106,9 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 jump_dir = dynamicObject.GetWorldRotation() * Vector3.up;
         body.velocity += jumpVelocity * jump_dir;
+
+        if (onJumpEvent != null)
+            onJumpEvent.Raise();
 
         shouldJump = false;
     }
