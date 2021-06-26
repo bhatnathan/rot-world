@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1506614493963888202}
   - component: {fileID: 1506614493963888201}
   - component: {fileID: 1506614493963888200}
+  - component: {fileID: 1303131767085018464}
   m_Layer: 6
   m_Name: StoneCube_B
   m_TagString: Untagged
@@ -46,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1396723482037517332}
+  xAxis: 1
+  yAxis: 1
+  zAxis: 0
 --- !u!65 &1506614493963888200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59,6 +63,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1303131767085018464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506614493963888207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc620741b2d2b344a96e785bc6f78696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decal: 0
 --- !u!1001 &1506614493104806911
 PrefabInstance:
   m_ObjectHideFlags: 0

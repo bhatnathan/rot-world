@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1428181684169025841}
   - component: {fileID: 1428181684169025840}
   - component: {fileID: 5576672583892775624}
+  - component: {fileID: -5574594217877219898}
   m_Layer: 6
   m_Name: StoneCube_A
   m_TagString: Untagged
@@ -46,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 2567233262506499715}
+  xAxis: 1
+  yAxis: 1
+  zAxis: 0
 --- !u!65 &5576672583892775624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59,6 +63,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5574594217877219898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428181684169025843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc620741b2d2b344a96e785bc6f78696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decal: 0
 --- !u!1001 &2605926608560273768
 PrefabInstance:
   m_ObjectHideFlags: 0
