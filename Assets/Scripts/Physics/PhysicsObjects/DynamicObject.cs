@@ -20,6 +20,8 @@ public class DynamicObject : MonoBehaviour
     [SerializeField] private bool isEssential;
     [Tooltip("What layer do we consider ground for this object.")]
     [SerializeField] private LayerMask groundLayer;
+    [Tooltip("Maximum velocity of this object.")]
+    [SerializeField] private float maxVelocity;
     [Header("Events")]
     [Tooltip("Event to raise if the object falls out of range.")]
     [SerializeField] private GameEvent onFallOffEvent;
@@ -60,7 +62,9 @@ public class DynamicObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        SetData();        
+        SetData();
+        if (body.velocity.magnitude > maxVelocity)
+            body.velocity = body.velocity.normalized * maxVelocity;
     }
 
     public bool IsGrounded()

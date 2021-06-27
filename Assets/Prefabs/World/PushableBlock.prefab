@@ -149,11 +149,14 @@ MonoBehaviour:
     constantValue: {x: 0, y: 0, z: 0, w: 0}
     variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
   stageBoundsTag: StageBounds
+  deathGroundTag: DeathGround
   isEssential: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  maxVelocity: 25
   onFallOffEvent: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
+  onGroundedEvent: {fileID: 0}
 --- !u!114 &8762914267215524177
 MonoBehaviour:
   m_ObjectHideFlags: 0
