@@ -19,6 +19,8 @@ public class LevelBuilderEditor : Editor
     EditMode editMode = EditMode.None;
     int levelLayer;
 
+    private bool actionPerformed = false; //HACK
+
     #region Inspector
     public override void OnInspectorGUI()
     {
@@ -75,24 +77,28 @@ public class LevelBuilderEditor : Editor
         if (!Physics.Raycast(worldRay.origin, worldRay.direction, out hitInfo, Mathf.Infinity, 1 << levelLayer)) { return; }
         
         DrawPreview(hitInfo);
-        
+
         if (Event.current.type == EventType.MouseUp && Event.current.button == 1)
-        {            
-             switch (editMode)
-            {
-                case EditMode.Create:
-                    Create(level_builder, hitInfo);
-                    break;
+        {
+            if(!actionPerformed)
+                switch (editMode)
+                {
+                    case EditMode.Create:
+                        Create(level_builder, hitInfo);
+                        break;
 
-                case EditMode.Edit:
-                    Edit(level_builder, hitInfo);
-                    break;
+                    case EditMode.Edit:
+                        Edit(level_builder, hitInfo);
+                        break;
 
-                case EditMode.Destroy:
-                    Destroy(level_builder, hitInfo);
-                    break;
-            }                        
+                    case EditMode.Destroy:
+                        Destroy(level_builder, hitInfo);
+                        break;
+                }
+            actionPerformed = true;
         }
+        else
+            actionPerformed = false;
     }
 
     private void DrawPreview(RaycastHit hit_info)
