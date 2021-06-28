@@ -145,6 +145,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  maxVelocity: 25
   onFallOffEvent: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
   onGroundedEvent: {fileID: 11400000, guid: d5840a8e92e79964ca01cb2359aad136, type: 2}
 --- !u!114 &4265735082826765357
