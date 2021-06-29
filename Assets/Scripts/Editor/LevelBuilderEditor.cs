@@ -14,10 +14,12 @@ public class LevelBuilderEditor : Editor
         Edit,
         Destroy
     }
-
+    
     int prefabIndex = 0;
-    EditMode editMode = EditMode.None;
+    EditMode editMode = EditMode.None;    
     int levelLayer;
+
+    private bool actionPerformed = false; //HACK
 
     #region Inspector
     public override void OnInspectorGUI()
@@ -31,7 +33,7 @@ public class LevelBuilderEditor : Editor
         }
            
         ShowPrefabDropdown(level_builder);
-        ShowEditMode();
+        ShowEditMode();        
     }        
 
     private void ShowPrefabDropdown(LevelBuilder level_builder)
@@ -50,7 +52,7 @@ public class LevelBuilderEditor : Editor
     private void ShowEditMode()
     {
         GUILayout.Label("Edit Mode");
-        editMode = (EditMode)EditorGUILayout.EnumPopup(editMode, new GUILayoutOption[0]);
+        editMode = (EditMode)EditorGUILayout.EnumPopup(editMode, new GUILayoutOption[0]);                
         GUILayout.Label("Edit Layer");
         levelLayer = EditorGUILayout.LayerField(levelLayer, new GUILayoutOption[0]);        
     }
@@ -72,27 +74,32 @@ public class LevelBuilderEditor : Editor
         RaycastHit hitInfo;
 
         //Return if mouse isn't over an object.                
-        if (!Physics.Raycast(worldRay.origin, worldRay.direction, out hitInfo, Mathf.Infinity, 1 << levelLayer)) { return; }
-        
+        if (!Physics.Raycast(worldRay.origin, worldRay.direction, out hitInfo, Mathf.Infinity, 1 << levelLayer)) { return; }        
+
         DrawPreview(hitInfo);
-        
+
         if (Event.current.type == EventType.MouseUp && Event.current.button == 1)
-        {            
-             switch (editMode)
-            {
-                case EditMode.Create:
-                    Create(level_builder, hitInfo);
-                    break;
+        {
+            if(!actionPerformed)
+                switch (editMode)
+                {
+                    case EditMode.Create:
+                        CreatableObject created = Create(level_builder, hitInfo);
+                        if (created != null && created.Decal) { created.transform.forward = hitInfo.normal; }
+                        break;
 
-                case EditMode.Edit:
-                    Edit(level_builder, hitInfo);
-                    break;
+                    case EditMode.Edit:
+                        Edit(level_builder, hitInfo);
+                        break;
 
-                case EditMode.Destroy:
-                    Destroy(level_builder, hitInfo);
-                    break;
-            }                        
+                    case EditMode.Destroy:
+                        Destroy(level_builder, hitInfo);
+                        break;
+                }
+            actionPerformed = true;
         }
+        else
+            actionPerformed = false;
     }
 
     private void DrawPreview(RaycastHit hit_info)
@@ -117,12 +124,13 @@ public class LevelBuilderEditor : Editor
 
     }
 
-    private void Create(LevelBuilder level_builder, RaycastHit hitInfo)
+    private CreatableObject Create(LevelBuilder level_builder, RaycastHit hitInfo)
     {
         Vector3 spawnPoint = CalculatePositionFromCollider(hitInfo);
-        if(Mathf.Approximately(spawnPoint.sqrMagnitude, 0f)) { return; }
+        if(Mathf.Approximately(spawnPoint.sqrMagnitude, 0f)) { return null; }
         GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(level_builder.GetActivePrefab(), level_builder.transform);
         go.transform.position = spawnPoint;
+        return go.GetComponent<CreatableObject>();
     }
 
     private void Edit(LevelBuilder level_builder, RaycastHit hitInfo)
