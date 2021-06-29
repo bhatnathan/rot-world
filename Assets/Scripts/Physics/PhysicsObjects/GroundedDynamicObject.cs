@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(DynamicObject))]
 public class GroundedDynamicObject : MonoBehaviour
 {
     [Tooltip("Reference to the world's rotation.")]
-    [SerializeField] private QuaternionReference worldRotation;
-    [Tooltip("Layers considered to be ground.")]
-    [SerializeField] private LayerMask groundLayer;
-    [Tooltip("Apply to which rigidbody")]
-    [SerializeField] private Rigidbody body;
+    [SerializeField] private QuaternionReference worldRotation;     
     [Tooltip("Distance from edge of player to edge of ground check, prevents sticking to walls.")]
     [SerializeField] private float edgeOffset = 0.05f;
+
+    private Rigidbody body;
+    private DynamicObject dynamicObject;
 
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
     private Vector3 savedHeight;
@@ -21,6 +22,8 @@ public class GroundedDynamicObject : MonoBehaviour
 
     private void Awake()
     {
+        body = GetComponent<Rigidbody>();
+        dynamicObject = GetComponent<DynamicObject>();        
         SetOffsets();        
     }
 
@@ -77,7 +80,7 @@ public class GroundedDynamicObject : MonoBehaviour
         foreach(Vector3 offset in offsets)
         {
             Ray ray = new Ray(body.position - (world_down * (transform.localScale.y / 2f)) + worldRotation.Value * offset, world_down);
-            if (Physics.Raycast(ray, out hit, 1f, groundLayer) && hit.collider != null)
+            if (Physics.Raycast(ray, out hit, 1f, dynamicObject.GetGroundLayer()) && hit.collider != null)
             {                
                 return true;
             }
