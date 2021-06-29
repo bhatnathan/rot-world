@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4265735082826765358}
   - component: {fileID: 4265735082826765359}
   - component: {fileID: 4265735082826765352}
-  - component: {fileID: 4265735082826765353}
+  - component: {fileID: 8588837414030553047}
   - component: {fileID: 4265735082826765356}
   - component: {fileID: 1385252976460295177}
   - component: {fileID: 4265735082826765357}
@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 2343698461782336003}
   - component: {fileID: 716870253581029968}
   - component: {fileID: 5619284451074700339}
+  - component: {fileID: 2173156839102460693}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -93,8 +94,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4265735082826765353
-BoxCollider:
+--- !u!135 &8588837414030553047
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,7 +105,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4265735082826765356
 Rigidbody:
@@ -515,3 +516,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2173156839102460693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265735082826765354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41935e260d3fe8c47b4ae02791365502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldRotation:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0, w: 0}
+    variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  body: {fileID: 4265735082826765356}
+  edgeOffset: 0.05
