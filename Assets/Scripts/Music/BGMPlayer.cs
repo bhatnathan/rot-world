@@ -7,6 +7,8 @@ public class BGMPlayer : MonoBehaviour
 {
     [Tooltip("Audio Source with music clip to play.")]
     [SerializeField] private AudioSource audioSource;
+    [Tooltip("Reference to global mute variable.")]
+    [SerializeField] private BoolReference isAudioMuted;
 
     private bool isMain = false;
 
@@ -41,8 +43,10 @@ public class BGMPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && !isAudioMuted.Value)
             audioSource.Play();
+        else if (audioSource.isPlaying && isAudioMuted.Value) //Currently restarts music when unmuting, but hey.
+            audioSource.Stop();
     }
 
     public string GetBGMName()
