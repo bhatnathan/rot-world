@@ -76,7 +76,7 @@ public class GroundedDynamicObject : MonoBehaviour
     {                
         foreach(Vector3 offset in offsets)
         {
-            Ray ray = new Ray(body.position - (world_down * 0.5f) + worldRotation.Value * offset, world_down);
+            Ray ray = new Ray(body.position - (world_down * (transform.localScale.y / 2f)) + worldRotation.Value * offset, world_down);
             if (Physics.Raycast(ray, out hit, 1f, groundLayer) && hit.collider != null)
             {                
                 return true;
