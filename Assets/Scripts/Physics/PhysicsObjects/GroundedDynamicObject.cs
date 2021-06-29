@@ -14,9 +14,8 @@ public class GroundedDynamicObject : MonoBehaviour
     [SerializeField] private float edgeOffset = 0.05f;
 
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
-    private float yposition;
+    private Vector3 savedHeight;
     private bool groundHit;
-    private Vector3 down;
 
     private Vector3[] offsets;
 
@@ -40,11 +39,12 @@ public class GroundedDynamicObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        down = worldRotation.Value * Vector3.down;
+        Vector3 world_down = worldRotation.Value * Vector3.down;
+        Vector3 world_up = -world_down;
 
-        if (TryGetGround(out RaycastHit hit))
+        if (TryGetGround(out RaycastHit hit, world_down))
         {
-            yposition = hit.point.y + (transform.localScale.y / 2f);
+            savedHeight = Vector3.Dot(hit.point + world_up * (transform.localScale.y / 2f), world_up) * world_up;
             groundHit = true;
         } else
         {
@@ -57,23 +57,26 @@ public class GroundedDynamicObject : MonoBehaviour
     private IEnumerator AfterFixedUpdate()
     {
         yield return waitForFixedUpdate;
-                
-        if(groundHit && body.position.y < yposition)
+
+        Vector3 world_up = worldRotation.Value * Vector3.up;
+        Vector3 new_height = Vector3.Dot(body.position, world_up) * world_up;
+
+        Vector3 height_diff = new_height - savedHeight;
+
+        if (groundHit && Vector3.Dot(height_diff, world_up) < 0.0f)
         {            
-            body.position = new Vector3(body.position.x, 
-                Mathf.Max(body.position.y, yposition), body.position.z);
-            body.velocity = new Vector3(
-                body.velocity.x,
-                Mathf.Max(0f, body.velocity.y),
-                body.velocity.z);
+            body.position -= height_diff;
+
+            Vector3 downwards_velocity = -Mathf.Min(Vector3.Dot(body.velocity, world_up), 0.0f) * world_up;
+            body.velocity += downwards_velocity;
         }
     }
 
-    private bool TryGetGround(out RaycastHit hit)
+    private bool TryGetGround(out RaycastHit hit, Vector3 world_down)
     {                
         foreach(Vector3 offset in offsets)
         {
-            Ray ray = new Ray(body.position - (down * 0.5f) + offset, down);
+            Ray ray = new Ray(body.position - (world_down * 0.5f) + worldRotation.Value * offset, world_down);
             if (Physics.Raycast(ray, out hit, 1f, groundLayer) && hit.collider != null)
             {                
                 return true;
