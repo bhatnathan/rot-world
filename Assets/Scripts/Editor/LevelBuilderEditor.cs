@@ -84,7 +84,8 @@ public class LevelBuilderEditor : Editor
                 switch (editMode)
                 {
                     case EditMode.Create:
-                        Create(level_builder, hitInfo);
+                        CreatableObject created = Create(level_builder, hitInfo);
+                        if (created != null && created.Decal) { created.transform.forward = hitInfo.normal; }
                         break;
 
                     case EditMode.Edit:
