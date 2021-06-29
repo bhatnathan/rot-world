@@ -82,6 +82,11 @@ public class DynamicObject : MonoBehaviour
         return worldRotation.Value;
     }
 
+    public LayerMask GetGroundLayer()
+    {
+        return groundLayer;
+    }
+
     private void SetData()
     {
         if (analyser.IsLayerDown(groundLayer, transform.position, worldRotation.Value) 
