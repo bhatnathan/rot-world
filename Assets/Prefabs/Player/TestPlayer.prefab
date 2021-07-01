@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4265735082826765359}
   - component: {fileID: 4265735082826765352}
   - component: {fileID: 8588837414030553047}
+  - component: {fileID: 3811093320326779710}
   - component: {fileID: 4265735082826765356}
   - component: {fileID: 1385252976460295177}
   - component: {fileID: 4265735082826765357}
@@ -105,7 +106,20 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.5001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &3811093320326779710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265735082826765354}
+  m_Material: {fileID: 13400000, guid: 1b2812d32dd8b04429c0d846edd00482, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4265735082826765356
 Rigidbody:
@@ -532,8 +546,4 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0, w: 0}
     variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  body: {fileID: 4265735082826765356}
   edgeOffset: 0.05

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 8762914267215524189}
   - component: {fileID: 8762914267215524190}
   - component: {fileID: 8762914267215524191}
+  - component: {fileID: 2623084488892314783}
   - component: {fileID: 8762914267215524184}
   - component: {fileID: 8762914267215524178}
   - component: {fileID: 8762914267215524179}
+  - component: {fileID: 5560491942777835837}
   - component: {fileID: 8762914267215524177}
   - component: {fileID: 4996455829324331348}
   - component: {fileID: 5064576755120547006}
@@ -101,6 +103,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &2623084488892314783
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762914267215524185}
+  m_Material: {fileID: 13400000, guid: f8f8d5945786c234eb2ce23e5006e36d, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8762914267215524184
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,6 +174,23 @@ MonoBehaviour:
   maxVelocity: 25
   onFallOffEvent: {fileID: 11400000, guid: 9345eae2efe43f14692eca11b23fa504, type: 2}
   onGroundedEvent: {fileID: 0}
+--- !u!114 &5560491942777835837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762914267215524185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41935e260d3fe8c47b4ae02791365502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldRotation:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0, w: 0}
+    variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
+  edgeOffset: 0.05
 --- !u!114 &8762914267215524177
 MonoBehaviour:
   m_ObjectHideFlags: 0
