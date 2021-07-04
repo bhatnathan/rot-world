@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationTag: Player
   item: {fileID: 6351100271798548043}
+  onCollected: {fileID: 11400000, guid: dac2cfb2389b17449b63be1f1534944f, type: 2}
 --- !u!114 &6351100271798548043
 MonoBehaviour:
   m_ObjectHideFlags: 0
