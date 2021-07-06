@@ -8,6 +8,10 @@ public class TimeLord : MonoBehaviour
     [SerializeField] private BoolVariable isTimeStopped;
     [Tooltip("List of all the active dynamic object's datas")]
     [SerializeField] private DynamicObjectDataList dynamicObjectDatas;
+    [Tooltip("Event to send when time is stopped.")]
+    [SerializeField] private GameEvent onTimeStop;
+    [Tooltip("Event to send when time is started.")]
+    [SerializeField] private GameEvent onTimeStart;
 
     private bool shouldStopTime;
 
@@ -40,14 +44,18 @@ public class TimeLord : MonoBehaviour
         if (AreDynamicObjectsGrounded())
         {
             Time.timeScale = 0f;
-            isTimeStopped.SetValue(true);            
+            isTimeStopped.SetValue(true);
+            if(onTimeStop != null)
+                onTimeStop.Raise();
         }
     }
 
     private void TryStartTime()
     {        
         Time.timeScale = 1f;
-        isTimeStopped.SetValue(false);        
+        isTimeStopped.SetValue(false);
+        if(onTimeStart != null)
+            onTimeStart.Raise();
     }    
 
     private bool AreDynamicObjectsGrounded()
