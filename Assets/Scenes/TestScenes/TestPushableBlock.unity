@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 1385252976460295177, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: stageBoundsTag
       value: StageBounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385252976460295177, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 4265735082826765354, guid: c6a673c31577ffc4086491bd7594fed5, type: 3}
       propertyPath: m_Name
