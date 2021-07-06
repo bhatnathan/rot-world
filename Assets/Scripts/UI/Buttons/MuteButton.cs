@@ -5,30 +5,35 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class MuteButton : MonoBehaviour
-{
-    [Header("Variables")]
-    [SerializeField] private BoolVariable isAudioMuted;
-    [Space]
+{       
     [Header("Button Icon")]
     [SerializeField] private Sprite unmutedIcon;
     [SerializeField] private Sprite mutedIcon;
 
+    private bool isMuted;
     private Image image;
 
     private void Awake()
-    {
+    {        
         image = GetComponent<Image>();
-        UpdateButtonIcon();
+        SetIsMuted(false);
     }
 
     public void OnClick()
     {
-        isAudioMuted.SetValue(!isAudioMuted.Value);
+        SetIsMuted(!isMuted);        
+    }
+
+    private void SetIsMuted(bool is_muted)
+    {
+        isMuted = is_muted;
+
+        AudioListener.volume = (isMuted) ? 0f : 1f;
         UpdateButtonIcon();
     }
 
     private void UpdateButtonIcon()
     {
-        image.sprite = isAudioMuted.Value ? mutedIcon : unmutedIcon;
+        image.sprite = isMuted ? mutedIcon : unmutedIcon;
     }
 }
