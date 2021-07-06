@@ -9,12 +9,17 @@ public class Collectible : MonoBehaviour
 
     [Tooltip("Type of item that is this collectible.")]
     [SerializeField] private Item item;
-    
+
+    [Tooltip("Event to send when this is collected.")]
+    [SerializeField] private GameEvent onCollected;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == activationTag)
         {
             other.gameObject.GetComponent<PlayerInventory>().AddItem(item);
+            if (onCollected != null)
+                onCollected.Raise();
             gameObject.SetActive(false);
         }
     }
