@@ -14,11 +14,11 @@ public class CollectibleBuilder : MonoBehaviour
         List<MeshRenderer> subcubes = new List<MeshRenderer>();
         subcubes.AddRange(GetComponentsInChildren<MeshRenderer>());
 
-        List<int> chosenIndices = ChooseNRandomIndices(subcubes, Mathf.RoundToInt(subcubes.Count * cullFactor));
+        List<int> chosen_indices = ChooseNRandomIndices(subcubes, Mathf.RoundToInt(subcubes.Count * cullFactor));
 
-        for(int i = 0; i < chosenIndices.Count; i++)
+        for(int i = 0; i < chosen_indices.Count; i++)
         {
-            subcubes[chosenIndices[i]].gameObject.SetActive(false);
+            subcubes[chosen_indices[i]].gameObject.SetActive(false);
         }
 
         for(int i = 0; i < subcubes.Count; i++)
@@ -37,7 +37,7 @@ public class CollectibleBuilder : MonoBehaviour
 
         int[] indices = Enumerable.Range(0, list.Count).ToArray();
 
-        List<int> chosenIndices = new List<int>();
+        List<int> chosen_indices = new List<int>();
        
 
         for(int i = 0; i < n; i++)
@@ -48,10 +48,10 @@ public class CollectibleBuilder : MonoBehaviour
             indices[i] = indices[j];
             indices[j] = temp;
 
-            chosenIndices.Add(indices[i]);            
+            chosen_indices.Add(indices[i]);            
         }        
 
-        return chosenIndices;
+        return chosen_indices;
     }
 
 
