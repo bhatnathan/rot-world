@@ -43,7 +43,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.14
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 6317781413025893290}
   - component: {fileID: 6317781413025893291}
   - component: {fileID: 1754034169}
+  - component: {fileID: 291159466}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -381,3 +382,20 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &291159466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317781413025893288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9226238b654aa4b8f579e14d1b3b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColors:
+  - {r: 0.735849, g: 0.60048056, b: 0.63254154, a: 1}
+  - {r: 0.14509805, g: 0.29803923, b: 0.3803922, a: 1}
+  - {r: 0.43854573, g: 0.6720036, b: 0.6886792, a: 1}
+  - {r: 0.21084018, g: 0.4339623, b: 0.23453261, a: 1}
