@@ -47,14 +47,14 @@ public class SlidingDoorBehaviour : MonoBehaviour
         Vector3 gravity_dir = worldRotation.Value * Vector3.down;
         float dot_value = Vector3.Dot(gravity_dir, slideDir);
 
-        if (!shifted && dot_value > MathConstants.smallValue)
+        if (!shifted && dot_value > 0.5)
         {
             collObj.transform.localPosition = slideDir * slideAmount;
             shifted = true;
             animating = true;
             potentialUnsafeRotation = true;
         }
-        else if (shifted && dot_value < -MathConstants.smallValue)
+        else if (shifted && dot_value < -0.5)
         {
             collObj.transform.localPosition = Vector3.zero;
             shifted = false;
