@@ -15,8 +15,8 @@ public class MuteButton : MonoBehaviour
 
     private void Awake()
     {        
-        image = GetComponent<Image>();
-        SetIsMuted(false);
+        image = GetComponent<Image>();        
+        SetIsMuted(Mathf.Approximately(0f, AudioListener.volume));
     }
 
     public void OnClick()
