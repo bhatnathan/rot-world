@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestLevels/UpsideDown.unity
-    guid: 87f75b88caa425e449fbbdc21ec6bc62
+    path: Assets/Scenes/Levels/TowersUnderneath.unity
+    guid: 66045ffa42c6ed847b27bf9edef0d9ac
   - enabled: 1
-    path: Assets/Scenes/TestLevels/FindTheEdge.unity
-    guid: 75fb60c8657f4004eb9eee8b7aacc731
+    path: Assets/Scenes/Levels/SBox.unity
+    guid: 600c048a9eeb3634cb287db9bfcee459
   - enabled: 1
-    path: Assets/Scenes/TestLevels/Jonas00.unity
-    guid: 94121ef630a3ed34a92eaa171c5770c2
+    path: Assets/Scenes/Levels/PushingAndFalling.unity
+    guid: 0ba09556a46ac8842ad29f315e378d2e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f8add66a079c00743a47fcad5cb4bbb6, type: 2}
