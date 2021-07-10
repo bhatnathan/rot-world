@@ -180,6 +180,7 @@ MonoBehaviour:
   worldRotation: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
   dynamicObjectDatas: {fileID: 11400000, guid: 3de8c7753cb60b4438ec7c78b62c52e4, type: 2}
   onRotateEvent: {fileID: 11400000, guid: b26d460b8061c19409803c43d98d6462, type: 2}
+  safeCheckDelay: 1
 --- !u!114 &4194240920654859459
 MonoBehaviour:
   m_ObjectHideFlags: 0
