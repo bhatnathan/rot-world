@@ -157,7 +157,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  maxVelocity: 25
+  maxVelocity: 22
   onFallOffEvent: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
   onGroundedEvent: {fileID: 11400000, guid: d5840a8e92e79964ca01cb2359aad136, type: 2}
 --- !u!114 &4265735082826765357
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalAcceleration: 100
   horizontalMaxSpeed: 10
-  jumpVelocity: 25
+  jumpVelocity: 22
   onJumpEvent: {fileID: 11400000, guid: 6f5082d9f39277448bdd30caf31a04f5, type: 2}
   onResetEvent: {fileID: 11400000, guid: 5445e10882d5f2c40a073e4d94651ec1, type: 2}
 --- !u!114 &1518754503120927866
