@@ -30,7 +30,7 @@ public class LevelSwitchTrigger : MonoBehaviour
         {
             if (other.gameObject.GetComponent<DynamicObject>().IsGrounded())
             {
-                int nextScene = (loadNextScene) ? SceneManager.GetActiveScene().buildIndex + 1 : loadScene;
+                int nextScene = (loadNextScene) ? (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings : loadScene;
                 SceneManager.LoadScene(nextScene);
             }
                 
