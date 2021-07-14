@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/PushingAndFalling.unity
     guid: 0ba09556a46ac8842ad29f315e378d2e
+  - enabled: 1
+    path: Assets/Scenes/TitleScreenLevel.unity
+    guid: d8c9a10ab1b5af54ca3c5e94ed1958f6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f8add66a079c00743a47fcad5cb4bbb6, type: 2}

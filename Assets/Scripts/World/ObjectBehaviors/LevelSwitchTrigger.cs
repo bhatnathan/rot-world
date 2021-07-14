@@ -14,6 +14,11 @@ public class LevelSwitchTrigger : MonoBehaviour
     [Tooltip("Tag of the collider we want to activate this level switch")]
     [SerializeField] private string activationTag;
 
+    public void Trigger()
+    {
+        SwitchScene();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         CheckIfValid(other);
@@ -30,10 +35,15 @@ public class LevelSwitchTrigger : MonoBehaviour
         {
             if (other.gameObject.GetComponent<DynamicObject>().IsGrounded())
             {
-                int nextScene = (loadNextScene) ? (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings : loadScene;
-                SceneManager.LoadScene(nextScene);
+                SwitchScene();                
             }
                 
         }
+    }
+
+    private void SwitchScene()
+    {
+        int nextScene = (loadNextScene) ? (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings : loadScene;
+        SceneManager.LoadScene(nextScene);
     }
 }
