@@ -6,13 +6,40 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreenLevel.unity
+    guid: d8c9a10ab1b5af54ca3c5e94ed1958f6
+  - enabled: 1
+    path: Assets/Scenes/Levels/StackUnderflow.unity
+    guid: e268f6768c664bf4694288d5ef42e068
+  - enabled: 1
     path: Assets/Scenes/Levels/TowersUnderneath.unity
     guid: 66045ffa42c6ed847b27bf9edef0d9ac
+  - enabled: 1
+    path: Assets/Scenes/Levels/LayerCake.unity
+    guid: 2ae51531b08418044b4f0866d4e189f6
   - enabled: 1
     path: Assets/Scenes/Levels/SBox.unity
     guid: 600c048a9eeb3634cb287db9bfcee459
   - enabled: 1
-    path: Assets/Scenes/Levels/PushingAndFalling.unity
-    guid: 0ba09556a46ac8842ad29f315e378d2e
+    path: Assets/Scenes/Levels/Well.unity
+    guid: f7f076b0572b9974cbb7855cd5d04b03
+  - enabled: 1
+    path: Assets/Scenes/Levels/TopsyTurvy.unity
+    guid: a9223cfeaa352074b9af9811e7440d55
+  - enabled: 1
+    path: Assets/Scenes/Levels/EmptyCube.unity
+    guid: 139d9bd625e235b43a72c402d58995df
+  - enabled: 1
+    path: Assets/Scenes/Levels/Safe.unity
+    guid: fdc54da905de7614da6893c86608f5a5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Fort.unity
+    guid: cd9644fec42246047a82309591676b9e
+  - enabled: 1
+    path: Assets/Scenes/Levels/FragmentedIllusion.unity
+    guid: bc81fc8e10dd01d45a571af612245065
+  - enabled: 1
+    path: Assets/Scenes/Levels/Syringe.unity
+    guid: 4936a689728f4f0408521f9f29b75384
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f8add66a079c00743a47fcad5cb4bbb6, type: 2}

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 54863425504447497}
   - component: {fileID: 3054847523331155465}
   - component: {fileID: 261343388298970710}
-  - component: {fileID: 2173156839102460693}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -158,7 +157,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  maxVelocity: 25
+  maxVelocity: 22
   onFallOffEvent: {fileID: 11400000, guid: 70d3ac60554e37846b70955bb8752e0b, type: 2}
   onGroundedEvent: {fileID: 11400000, guid: d5840a8e92e79964ca01cb2359aad136, type: 2}
 --- !u!114 &4265735082826765357
@@ -175,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalAcceleration: 100
   horizontalMaxSpeed: 10
-  jumpVelocity: 25
+  jumpVelocity: 22
   onJumpEvent: {fileID: 11400000, guid: 6f5082d9f39277448bdd30caf31a04f5, type: 2}
   onResetEvent: {fileID: 11400000, guid: 5445e10882d5f2c40a073e4d94651ec1, type: 2}
 --- !u!114 &1518754503120927866
@@ -376,23 +375,6 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2173156839102460693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4265735082826765354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41935e260d3fe8c47b4ae02791365502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worldRotation:
-    useConstant: 0
-    constantValue: {x: 0, y: 0, z: 0, w: 0}
-    variable: {fileID: 11400000, guid: 238e78415a41f744bba393c7ec97fb87, type: 2}
-  edgeOffset: 0.05
 --- !u!1 &7911432594020795275
 GameObject:
   m_ObjectHideFlags: 0

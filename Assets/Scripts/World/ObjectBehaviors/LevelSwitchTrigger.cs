@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +10,23 @@ public class LevelSwitchTrigger : MonoBehaviour
     [Tooltip("The build index of the scene to load to")]
     [SerializeField] private int loadScene;
 
+    [Tooltip("The delay from triggering a scene switch to the actual switch. Use for transition effects, etc.")]
+    [SerializeField] private float sceneSwitchDelay;
+
     [Tooltip("Tag of the collider we want to activate this level switch")]
     [SerializeField] private string activationTag;
+
+    [SerializeField] private GameEvent onLoadSceneEvent;
+
+    public void Trigger()
+    {
+        SwitchScene();
+    }
+
+    public void TriggerDelayed()
+    {
+        StartCoroutine(SwitchSceneInSeconds(sceneSwitchDelay));
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -30,10 +44,22 @@ public class LevelSwitchTrigger : MonoBehaviour
         {
             if (other.gameObject.GetComponent<DynamicObject>().IsGrounded())
             {
-                int nextScene = (loadNextScene) ? (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings : loadScene;
-                SceneManager.LoadScene(nextScene);
+                StartCoroutine(SwitchSceneInSeconds(sceneSwitchDelay));                
             }
                 
         }
+    }
+
+    private IEnumerator SwitchSceneInSeconds(float scene_switch_delay)
+    {
+        onLoadSceneEvent.Raise();
+        yield return new WaitForSecondsRealtime(scene_switch_delay);
+        SwitchScene();
+    }
+
+    private void SwitchScene()
+    {
+        int nextScene = (loadNextScene) ? (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings : loadScene;
+        SceneManager.LoadScene(nextScene);
     }
 }

@@ -59,8 +59,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d87b3eff1f78d245b8598439ed52777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadNextScene: 0
   loadScene: 0
+  sceneSwitchDelay: 1
   activationTag: Player
+  onLoadSceneEvent: {fileID: 11400000, guid: ad3e874796e885343a2ed4099741202a, type: 2}
 --- !u!111 &-8290443634129218992
 Animation:
   m_ObjectHideFlags: 0
