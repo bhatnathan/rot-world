@@ -29,5 +29,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Well.unity
     guid: f7f076b0572b9974cbb7855cd5d04b03
+  - enabled: 1
+    path: Assets/Scenes/Levels/FragmentedIllusion.unity
+    guid: bc81fc8e10dd01d45a571af612245065
+  - enabled: 1
+    path: Assets/Scenes/Levels/LayerCake.unity
+    guid: 2ae51531b08418044b4f0866d4e189f6
+  - enabled: 1
+    path: Assets/Scenes/Levels/StackUnderflow.unity
+    guid: e268f6768c664bf4694288d5ef42e068
+  - enabled: 1
+    path: Assets/Scenes/Levels/Syringe.unity
+    guid: 4936a689728f4f0408521f9f29b75384
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f8add66a079c00743a47fcad5cb4bbb6, type: 2}
